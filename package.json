@@ -15,9 +15,5 @@
   },
   "scripts": {
     "start": "cds-serve"
-  },
-  "sapux": [
-    "app/admin-books",
-    "app/browse"
-  ]
+  }
 }
