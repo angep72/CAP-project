@@ -1,0 +1,55 @@
+<mvc:View
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+    controllerName="com.myorg.myapp.controller.Main"
+	core:require="{
+		formatter: 'com/myorg/myapp/model/formatter'
+	}">
+
+	<Page
+		title="{i18n>appTitle}"
+		id="page" >	<content>
+		 <Table id="idTable" class="idTable" items="{/Workers}">
+        <columns>
+            <Column>
+               <Button text="ID" press="onSort"/>
+            </Column>
+            <Column>
+                <Text text="First Name"/>
+            </Column>
+            <Column>
+                <Text text="Last Name"/>
+            </Column>
+            <Column>
+                <Text text="Email"/>
+            </Column>
+            <Column>
+                <Text text="Position"/>
+            </Column>
+            <Column>
+                <Text text="Salary"/>
+            </Column>
+           
+            <Column>
+                <Text text="Actions"/>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                <Text text="{ID}"/>
+                <Text text="{firstName}"/>
+                <Text text="{lastName}"/>
+                <Text text="{email}"/>
+                <Text text="{position}"/>
+                <Text text="{salary}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+		</content>
+	</Page>
+
+</mvc:View>
