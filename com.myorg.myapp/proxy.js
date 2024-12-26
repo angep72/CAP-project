@@ -1,5 +1,6 @@
 //this server is for data version 4
 const express = require("express");
+//using cors policy
 const cors = require("cors");
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
