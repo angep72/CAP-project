@@ -41,6 +41,10 @@
                 <Text text="{author}"/>
                 <Text text="{price}"/>
                 <Text text="{stock}"/>
+                <HBox>
+                    <Button icon="sap-icon://edit" press="onEdit"/>
+                    <Button icon="sap-icon://delete" press="onDelete"/>
+                </HBox>
                 </cells>
             </ColumnListItem>
         </items>
