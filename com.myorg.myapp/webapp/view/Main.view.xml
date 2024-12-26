@@ -12,6 +12,13 @@
 		title="{i18n>appTitle}"
 		id="page" >	<content>
 		 <Table id="idTable" class="idTable" items="{/Books}">
+         <headerToolbar>
+         <Toolbar >
+            <Title text="Books"/>
+            <ToolbarSpacer/>
+            <Button text="Add" press="onAdd"/>
+         </Toolbar>
+         </headerToolbar>
         <columns>
             <Column>
              <Text text="Book ID"/>
@@ -52,17 +59,33 @@
 		</content>
         <Dialog id="editDialog" title="Edit Book" class="sapUiContentPadding">
         <VBox>
+            <Label text="Book ID"/>
             <Input value="{/selectedBook/ID}" enabled="false"/>
-            <Input value="{/selectedBook/title}" placeholder="Title"/>
-            <Input value="{/selectedBook/author}" placeholder="Author"/>
-            <Input value="{/selectedBook/price}" placeholder="Price"/>
-            <Input value="{/selectedBook/stock}" placeholder="Stock"/>
             <HBox>
                 <Button text="Save" press="onSave"/>
                 <Button text="Cancel" press="onCancel"/>
             </HBox>
         </VBox>
         </Dialog>
+        <Dialog id="addDialog" title="Add Book" class="sapUiContentPadding">
+        <VBox>
+        <Label text="Book ID"/>
+        <Input id="idInput"/>
+        <Label text="Title"/>
+        <Input id="titleInput"/>
+        <Label text="Author"/>
+        <Input id="authorInput"/>
+        <Label text="Price"/>
+        <Input id="priceInput"/>
+        <Label text="Stock"/>
+        <Input id="stockInput"/>
+        <HBox>
+            <Button text="Save" press="onSaveAdd"/>
+            <Button text="Cancel" press="onCancelAdd"/>
+        </HBox>
+         </VBox>
+        </Dialog>
+       
 	</Page>
 
 </mvc:View>

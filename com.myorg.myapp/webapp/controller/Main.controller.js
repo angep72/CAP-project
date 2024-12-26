@@ -16,6 +16,9 @@ sap.ui.define([
     },
     onEdit:function(){
     this.byId("editDialog").open();
+    },
+    onAdd:function(){  
+    this.byId("addDialog").open();
     }
    });
 });
