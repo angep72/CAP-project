@@ -39,6 +39,7 @@ sap.ui.define([
             const oContext = oList.create(newProduct);
             oContext.created().then(() => {
                 MessageBox.success("Product added successfully");
+                this.refresh();
                 this.byId("addDialog").close();
             });
 
