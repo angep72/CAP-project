@@ -11,7 +11,7 @@
 	<Page
 		title="{i18n>appTitle}"
 		id="page" >	<content>
-		 <Table id="idTable" class="idTable" items="{/Workers}">
+		 <Table id="idTable" class="idTable" items="{/Books}">
         <columns>
             <Column>
                <Button text="ID" press="onSort"/>

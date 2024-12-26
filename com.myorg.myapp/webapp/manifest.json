@@ -54,7 +54,7 @@
 			},
 			"": {
             "type": "sap.ui.model.odata.v4.ODataModel",
-            "uri": "http://localhost:4004/odata/v4/workers/"
+            "uri": "http://localhost:4004/odata/v4/Books/"
          }
 		},
 
