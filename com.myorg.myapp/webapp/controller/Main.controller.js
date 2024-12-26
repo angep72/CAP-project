@@ -19,6 +19,9 @@ sap.ui.define([
     },
     onAdd:function(){  
     this.byId("addDialog").open();
+    },
+    onCancelAdd:function(){
+    this.byId("addDialog").close();
     }
    });
 });
