@@ -14,22 +14,19 @@
 		 <Table id="idTable" class="idTable" items="{/Books}">
         <columns>
             <Column>
-               <Button text="ID" press="onSort"/>
+             <Text text="Book ID"/>
             </Column>
             <Column>
-                <Text text="First Name"/>
+                <Text text="Title"/>
             </Column>
             <Column>
-                <Text text="Last Name"/>
+                <Text text="Author"/>
             </Column>
             <Column>
-                <Text text="Email"/>
+                <Text text="Price"/>
             </Column>
             <Column>
-                <Text text="Position"/>
-            </Column>
-            <Column>
-                <Text text="Salary"/>
+                <Text text="Stock"/>
             </Column>
            
             <Column>
@@ -40,11 +37,10 @@
             <ColumnListItem>
                 <cells>
                 <Text text="{ID}"/>
-                <Text text="{firstName}"/>
-                <Text text="{lastName}"/>
-                <Text text="{email}"/>
-                <Text text="{position}"/>
-                <Text text="{salary}"/>
+                <Text text="{title}"/>
+                <Text text="{author}"/>
+                <Text text="{price}"/>
+                <Text text="{stock}"/>
                 </cells>
             </ColumnListItem>
         </items>
