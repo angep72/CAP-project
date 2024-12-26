@@ -50,6 +50,19 @@
         </items>
     </Table>
 		</content>
+        <Dialog id="editDialog" title="Edit Book" class="sapUiContentPadding">
+        <VBox>
+            <Input value="{/selectedBook/ID}" enabled="false"/>
+            <Input value="{/selectedBook/title}" placeholder="Title"/>
+            <Input value="{/selectedBook/author}" placeholder="Author"/>
+            <Input value="{/selectedBook/price}" placeholder="Price"/>
+            <Input value="{/selectedBook/stock}" placeholder="Stock"/>
+            <HBox>
+                <Button text="Save" press="onSave"/>
+                <Button text="Cancel" press="onCancel"/>
+            </HBox>
+        </VBox>
+        </Dialog>
 	</Page>
 
 </mvc:View>

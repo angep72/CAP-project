@@ -13,6 +13,9 @@ sap.ui.define([
         });
         
         this.getView().setModel(oModel);
+    },
+    onEdit:function(){
+    this.byId("editDialog").open();
     }
    });
 });
