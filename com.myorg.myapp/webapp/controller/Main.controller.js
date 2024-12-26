@@ -22,6 +22,26 @@ sap.ui.define([
     },
     onCancelAdd:function(){
     this.byId("addDialog").close();
+    },
+    onSaveAdd:function(){
+        const oModel = this.getView().getModel();
+
+        const newProduct = {
+            ID: this.byId("idInput").getValue(),
+            title: this.byId("titleInput").getValue(),
+            author: this.byId("authorInput").getValue(),
+            stock: this.byId("stockInput").getValue(),
+            price: this.byId("priceInput").getValue(),
+
+            
+        };
+        const oList =oModel.bindList("/Books");
+        const oContext = oList.create(newProduct);
+        oContext.created().then(() => {
+            MessageBox.success("Product added successfully");
+            this.byId("addDialog").close();
+        });
+        
     }
    });
 });
