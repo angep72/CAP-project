@@ -83,62 +83,67 @@ sap.ui.define([
         onCancelEdit: function () {
             this.byId("editDialog").close();
         },
-        onSaveEdit: function () {
-            const oModel = this.getView().getModel();
-
-            // Ensure the model is available
-            if (!oModel) {
-                MessageBox.error("Model not found!");
-                return;
-            }
-
-            // Collect the data for the book
-            const booksData = {
-                ID: this._selectedBookId,
-                title: this.byId("editTitle").getValue(),
-                author: this.byId("editAuthor").getValue(),
-                stock: parseInt(this.byId("editStock").getValue(), 10),
-                price: parseFloat(this.byId("editPrice").getValue())
-            };
-
-            // Create a deferred binding
-            const sPath = "/Books(" + booksData.ID + ")";
-            const oBinding = oModel.bindContext(sPath, null, {
-                $$groupId: "$auto",
-                $$updateGroupId: "$auto"
-            });
-            console.log(sPath);
-            // Execute the request
-            oBinding.requestObject().then((oData) => {
-                if (!oData) {
-                    throw new Error("Book not found");
+        onSaveEdit: async function() {
+            try {
+                const oView = this.getView();
+                const oModel = oView.getModel(); // Main OData model
+                const editModel = oView.getModel("editModel");
+                
+                if (!editModel) {
+                    throw new Error("Edit model not found");
                 }
 
-                // Get the binding context
-                const oContext = oBinding.getBoundContext();
+                const booksData = editModel.getData();
+                if (!booksData || !booksData.ID) {
+                    throw new Error("No valid data found for update");
+                }
 
-                // Update the properties
+                const sPath = `/Books(${booksData.ID})`;
+                
+                // Create binding context for the specific book
+                const oContext = oModel.createBindingContext(sPath);
+                
+                if (!oContext) {
+                    throw new Error("Could not create binding context");
+                }
+
+                // Update each property
                 Object.keys(booksData).forEach(key => {
-                    oContext.setProperty(key, booksData[key]);
-                });
-
-                // Submit changes
-                return oModel.submitBatch("$auto");
-            })
-                .then(() => {
-                    MessageBox.success("Product updated successfully");
-                    this.byId("editDialog").close();
-
-                    // Refresh the list binding
-                    const oList = this.byId("booksList"); // Adjust ID based on your view
-                    if (oList) {
-                        oList.getBinding("items").refresh();
+                    if (key !== 'ID') {  // Skip the ID field
+                        oContext.getBinding().setProperty(key, booksData[key]);
                     }
-                })
-                .catch(oError => {
-                    console.error(oError);
-                    MessageBox.error("Update failed: " + (oError.message || oError));
                 });
+                
+                // Submit changes
+                await oModel.submitBatch("UpdateGroup");
+                
+                MessageBox.success("Product updated successfully");
+                
+                // Close the dialog
+                if (this._oEditDialog) {
+                    this._oEditDialog.close();
+                }
+                
+                // Refresh the list
+                const oList = this.byId("booksList");
+                if (oList) {
+                    const oBinding = oList.getBinding("items");
+                    if (oBinding && oBinding.refresh) {
+                        oBinding.refresh();
+                    }
+                }
+                
+            } catch (error) {
+                console.error(error);
+                MessageBox.error("Update failed: " + (error.message || error));
+                
+                // Reset changes in case of error
+                try {
+                    await oModel.resetChanges();
+                } catch (resetError) {
+                    console.error("Error resetting changes:", resetError);
+                }
+            }
         }
 
     });
