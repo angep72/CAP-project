@@ -1,7 +1,8 @@
 sap.ui.define([
     "./BaseController",
     "sap/m/MessageBox",
-    "sap/ui/model/odata/v4/ODataModel"
+    "sap/ui/model/odata/v4/ODataModel",
+    "sap/m/MessageBox"
 ], function (BaseController, MessageBox, ODataModel) {
     "use strict";
 
