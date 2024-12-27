@@ -15,9 +15,7 @@ sap.ui.define([
 
             this.getView().setModel(oModel);
         },
-        onEdit: function () {
-            this.byId("editDialog").open();
-        },
+       
         onAdd: function () {
             this.byId("addDialog").open();
         },
@@ -68,7 +66,11 @@ sap.ui.define([
                     }
                 }.bind(this) // Bind to maintain controller context
             });
-        }
+        },
+        onEdit: function () {
+            this.byId("editDialog").open();
+        },
+        onC
         
         
     });
