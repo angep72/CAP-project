@@ -67,8 +67,16 @@ sap.ui.define([
                 }.bind(this) // Bind to maintain controller context
             });
         },
-        onEdit: function () {
-            this.byId("editDialog").open();
+        onEdit: function (oEvent) {
+            const button = oEvent.getSource();
+            const listItem = button.getParent();
+            const context = listItem.getBindingContext();
+            const booksData = context.getObject()
+             this._selectedBookId = booksData.ID
+             const dialog = this.byId("editDialog");
+             this.byId("editId").setValue(booksData.ID);
+             this.byId("editTitle").setValue(booksData.title);
+             dialog.open();
         },
         onCancelEdit: function () {
             this.byId("editDialog").close();
