@@ -83,6 +83,9 @@ sap.ui.define([
         onCancelEdit: function () {
             this.byId("editDialog").close();
         },
+        onSaveEdit: function () {
+            alert("Please add your functionality here")
+        }
      
         
         
