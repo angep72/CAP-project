@@ -38,9 +38,8 @@ sap.ui.define([
             const oContext = oList.create(newProduct);
             oContext.created().then(() => {
                 MessageBox.success("Product added successfully");
-                this.getView().getModel().refresh();
-                this.byId("addDialog").close();
-                
+                this.byId("addDialog").close()
+                oModel.refresh();                
             });
 
         },
@@ -76,11 +75,17 @@ sap.ui.define([
              const dialog = this.byId("editDialog");
              this.byId("editId").setValue(booksData.ID);
              this.byId("editTitle").setValue(booksData.title);
+             this.byId("editAuthor").setValue(booksData.author);
+             this.byId("editStock").setValue(booksData.stock);
+             this.byId("editPrice").setValue(booksData.price);
              dialog.open();
         },
         onCancelEdit: function () {
             this.byId("editDialog").close();
         },
+        onSaveEdit: function () {
+            alert("Please add your functionality here")
+        }
      
         
         
