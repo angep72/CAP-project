@@ -84,13 +84,6 @@ sap.ui.define([
             this.byId("editDialog").close();
         },
             onSaveEdit: function() {
-                const oModel = this.getView().getModel();
-            
-                // Ensure the model is available
-                if (!oModel) {
-                    MessageBox.error("Model not found!");
-                    return;
-                }
             
                 // Collect the data for the book
                 const booksData = {
@@ -106,23 +99,24 @@ sap.ui.define([
                 
                 // Check if the list and context are valid
                 const sPath = "/Books(" + booksData.ID + ")";
-                const oContext = oList.getContext(sPath);
+                const oContext = oList.getContext();
+                console.log(oContext);
             
-                if (oContext) {
-                    // If oContext is valid, proceed with the update
-                    oContext.update(booksData).then(() => {
-                        // On successful update
-                        MessageBox.success("Product updated successfully");
-                        this.byId("editDialog").close();
-                        oModel.refresh();  // Refresh the model to reflect the changes
-                    }).catch((error) => {
-                        // Handle update failure
-                        MessageBox.error("Update failed: " + (error.message || error));
-                    });
-                } else {
-                    // Handle case when context is not found
-                    MessageBox.error("Context not found for the book with ID: " + booksData.ID);
-                }
+                // if (oContext) {
+                //     // If oContext is valid, proceed with the update
+                //     oContext.update(booksData).then(() => {
+                //         // On successful update
+                //         MessageBox.success("Product updated successfully");
+                //         this.byId("editDialog").close();
+                //         oModel.refresh();  // Refresh the model to reflect the changes
+                //     }).catch((error) => {
+                //         // Handle update failure
+                //         MessageBox.error("Update failed: " + (error.message || error));
+                //     });
+                // } else {
+                //     // Handle case when context is not found
+                //     MessageBox.error("Context not found for the book with ID: " + booksData.ID);
+                // }
             }
                            
         
