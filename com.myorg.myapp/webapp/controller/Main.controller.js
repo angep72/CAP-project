@@ -70,6 +70,9 @@ sap.ui.define([
         onEdit: function () {
             this.byId("editDialog").open();
         },
+        onCancelEdit: function () {
+            this.byId("editDialog").close();
+        },
      
         
         
