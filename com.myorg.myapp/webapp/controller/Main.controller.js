@@ -83,67 +83,33 @@ sap.ui.define([
         onCancelEdit: function () {
             this.byId("editDialog").close();
         },
-        onSaveEdit: async function() {
-            try {
-                const oView = this.getView();
-                const oModel = oView.getModel(); // Main OData model
-                const editModel = oView.getModel("editModel");
-                
-                if (!editModel) {
-                    throw new Error("Edit model not found");
-                }
-
-                const booksData = editModel.getData();
-                if (!booksData || !booksData.ID) {
-                    throw new Error("No valid data found for update");
-                }
-
-                const sPath = `/Books(${booksData.ID})`;
-                
-                // Create binding context for the specific book
-                const oContext = oModel.createBindingContext(sPath);
-                
-                if (!oContext) {
-                    throw new Error("Could not create binding context");
-                }
-
-                // Update each property
-                Object.keys(booksData).forEach(key => {
-                    if (key !== 'ID') {  // Skip the ID field
-                        oContext.getBinding().setProperty(key, booksData[key]);
-                    }
-                });
-                
-                // Submit changes
-                await oModel.submitBatch("UpdateGroup");
-                
-                MessageBox.success("Product updated successfully");
-                
-                // Close the dialog
-                if (this._oEditDialog) {
-                    this._oEditDialog.close();
-                }
-                
-                // Refresh the list
-                const oList = this.byId("booksList");
-                if (oList) {
-                    const oBinding = oList.getBinding("items");
-                    if (oBinding && oBinding.refresh) {
-                        oBinding.refresh();
-                    }
-                }
-                
-            } catch (error) {
-                console.error(error);
-                MessageBox.error("Update failed: " + (error.message || error));
-                
-                // Reset changes in case of error
-                try {
-                    await oModel.resetChanges();
-                } catch (resetError) {
-                    console.error("Error resetting changes:", resetError);
-                }
+        onSaveEdit: function() {
+            const oModel = this.getView().getModel();
+            const selectedItem = this.byId("idOfYourTable").getSelectedItem();
+            
+            if (!selectedItem) {
+                MessageBox.error("Please select a product to edit");
+                return;
             }
+            
+            const oContext = selectedItem.getBindingContext();
+            const updatedProduct = {
+                ID: this.byId("idInput").getValue(),
+                title: this.byId("titleInput").getValue(),
+                author: this.byId("authorInput").getValue(),
+                stock: this.byId("stockInput").getValue(),
+                price: this.byId("priceInput").getValue()
+            };
+            
+            oContext.setObject(updatedProduct);
+            
+            oModel.submitChanges().then(() => {
+                MessageBox.success("Product updated successfully");
+                this.byId("editDialog").close();
+                oModel.refresh();
+            }).catch(error => {
+                MessageBox.error("Error updating product");
+            });
         }
 
     });
