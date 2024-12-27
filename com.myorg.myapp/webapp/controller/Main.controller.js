@@ -1,7 +1,8 @@
 sap.ui.define([
     "./BaseController",
     "sap/m/MessageBox",
-    "sap/ui/model/odata/v4/ODataModel"
+    "sap/ui/model/odata/v4/ODataModel",
+    "sap/m/MessageBox"
 ], function (BaseController, MessageBox, ODataModel) {
     "use strict";
 
@@ -14,9 +15,7 @@ sap.ui.define([
 
             this.getView().setModel(oModel);
         },
-        onEdit: function () {
-            this.byId("editDialog").open();
-        },
+       
         onAdd: function () {
             this.byId("addDialog").open();
         },
@@ -55,19 +54,23 @@ sap.ui.define([
             }
         
             sap.m.MessageBox.confirm("Are you sure you want to delete this product?", {
-                actions: [sap.m.MessageBox.Action.YES, sap.m.MessageBox.Action.NO],
+                actions: [MessageBox.Action.YES, MessageBox.Action.NO],
                 onClose: function (oAction) {
-                    if (oAction === sap.m.MessageBox.Action.YES) {
+                    if (oAction === MessageBox.Action.YES) {
                         // OData v4 deletion using context.delete()
                         context.delete().then(function() {
                             sap.m.MessageBox.success("Product deleted successfully!");
                         }).catch(function(oError) {
-                            sap.m.MessageBox.error("Error deleting product: " + oError.message);
+                            MessageBox.error("Error deleting product: " + oError.message);
                         });
                     }
                 }.bind(this) // Bind to maintain controller context
             });
-        }
+        },
+        onEdit: function () {
+            this.byId("editDialog").open();
+        },
+        onC
         
         
     });

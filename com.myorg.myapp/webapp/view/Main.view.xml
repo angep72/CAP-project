@@ -63,7 +63,7 @@
             <Input value="{/selectedBook/ID}" enabled="false"/>
             <HBox>
                 <Button text="Save" press="onSave"/>
-                <Button text="Cancel" press="onCancel"/>
+                <Button text="Cancel" press="onCancelEdit"/>
             </HBox>
         </VBox>
         </Dialog>
