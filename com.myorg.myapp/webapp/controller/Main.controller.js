@@ -84,7 +84,21 @@ sap.ui.define([
             this.byId("editDialog").close();
         },
         onSaveEdit: function () {
-            alert("Please add your functionality here")
+            const oModel = this.getView().getModel();
+            const booksData = {
+                ID: this._selectedBookId,
+                title: this.byId("editTitle").getValue(),
+                author: this.byId("editAuthor").getValue(),
+                stock: this.byId("editStock").getValue(),
+                price: this.byId("editPrice").getValue(),
+            };
+            const oList = oModel.bindList("/Books");
+            const oContext = oList.getContext("/Books(" + booksData.ID + ")");
+            oContext.update(booksData).then(() => {
+                MessageBox.success("Product updated successfully");
+                this.byId("editDialog").close()
+                oModel.refresh();                
+            });
         }
      
         
