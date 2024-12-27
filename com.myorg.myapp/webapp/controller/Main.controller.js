@@ -53,13 +53,13 @@ sap.ui.define([
                 return;
             }
         
-            sap.m.MessageBox.confirm("Are you sure you want to delete this product?", {
+            MessageBox.confirm("Are you sure you want to delete this product?", {
                 actions: [MessageBox.Action.YES, MessageBox.Action.NO],
                 onClose: function (oAction) {
                     if (oAction === MessageBox.Action.YES) {
                         // OData v4 deletion using context.delete()
                         context.delete().then(function() {
-                            sap.m.MessageBox.success("Product deleted successfully!");
+                            MessageBox.success("Product deleted successfully!");
                         }).catch(function(oError) {
                             MessageBox.error("Error deleting product: " + oError.message);
                         });
@@ -67,10 +67,21 @@ sap.ui.define([
                 }.bind(this) // Bind to maintain controller context
             });
         },
-        onEdit: function () {
-            this.byId("editDialog").open();
+        onEdit: function (oEvent) {
+            const button = oEvent.getSource();
+            const listItem = button.getParent();
+            const context = listItem.getBindingContext();
+            const booksData = context.getObject()
+             this._selectedBookId = booksData.ID
+             const dialog = this.byId("editDialog");
+             this.byId("editId").setValue(booksData.ID);
+             this.byId("editTitle").setValue(booksData.title);
+             dialog.open();
         },
-        onC
+        onCancelEdit: function () {
+            this.byId("editDialog").close();
+        },
+     
         
         
     });

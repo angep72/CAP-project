@@ -60,7 +60,15 @@
         <Dialog id="editDialog" title="Edit Book" class="sapUiContentPadding">
         <VBox>
             <Label text="Book ID"/>
-            <Input value="{/selectedBook/ID}" enabled="false"/>
+            <Input id="editId" />
+            <Label text="Book Title" />
+            <Input id="editTitle"/>
+            <Label text="Author" />
+            <Input id="editAuthor"/>
+            <Label text="editPrice"/>
+            <Input id="editPrice"/>
+            <Label text="Stock"/>
+            <Input  id="editStock"/>
             <HBox>
                 <Button text="Save" press="onSave"/>
                 <Button text="Cancel" press="onCancelEdit"/>
