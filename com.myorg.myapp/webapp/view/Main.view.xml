@@ -136,6 +136,14 @@
         <VBox>
         <Label text="BookId update"/>
         <Input id="editId" />
+        <Label text="Title" />
+        <Input id="editTitle"/>
+        <Label text="Author"/>
+        <Input id="editAuthor"/>
+        <Label text="Stock"/>
+        <Input id="editStock"/>
+        <Label text="Price" />
+        <Input id="editPrice"/>
         </VBox>
 
         </Dialog>
