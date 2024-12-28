@@ -153,6 +153,8 @@ sap.ui.define([
             input.setValueState("error")
             return false
            }
+           input.setValueState("None");
+           return true
         }
         
 
