@@ -139,8 +139,11 @@ sap.ui.define([
                 console.error(oError);
                 MessageBox.error("Update failed: " + (oError.message || oError));
             });
+        },
+
+        onListItem:function(){
+            alert("List Item");
         }
-        
         
 
     });
