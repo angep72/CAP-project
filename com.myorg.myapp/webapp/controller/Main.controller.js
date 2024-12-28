@@ -171,8 +171,8 @@ sap.ui.define([
                 oInput.setValueState("Error");
                  oInput.setValueStateText("Title must contain only letters and spaces");  
 
-            }
-
+            }else {
+                oInput.setValueState("None");}
             
         }
 
