@@ -44,7 +44,7 @@
             <ColumnListItem>
                 <cells>
                 <Text text="{ID}"/>
-                <Text text="{title}"/>
+                <Text text="{book_ID}"/>
                 <Text text="{author}"/>
                 <Text text="{price}"/>
                 <Text text="{stock}"/>
