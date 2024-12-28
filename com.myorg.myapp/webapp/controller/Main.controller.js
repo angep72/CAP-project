@@ -22,6 +22,7 @@ sap.ui.define([
         onCancelAdd: function () {
             this.byId("addDialog").close();
         },
+    
         onSaveAdd: function () {
             const oModel = this.getView().getModel();
 
@@ -144,6 +145,21 @@ sap.ui.define([
         onListItem:function(){
             const oRouter = this.getOwnerComponent().getRouter()
             oRouter.navTo("listItem");
+        },
+        validateBookId: function(oEvent) {
+            var oInput = oEvent.getSource();
+            var sValue = oInput.getValue();
+            var bValidInput = /^\d+$/.test(sValue); // Regex to check if the input contains only digits
+
+            if (sValue === "") {
+                oInput.setValueState("Error");
+                oInput.setValueStateText("Book ID is required");
+            } else if (!bValidInput) {
+                oInput.setValueState("Error");
+                oInput.setValueStateText("Book ID must be a number");
+            } else {
+                oInput.setValueState("None");
+            }
         }
         
 
