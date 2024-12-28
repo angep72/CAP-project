@@ -66,6 +66,7 @@
         <Input id="idInput"
         type="Number"
         valueStateText="The ID must be a number"
+        change="validateBookId"
         />
         <Label text="Title"/>
         <Input id="titleInput"/>
