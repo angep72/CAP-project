@@ -33,9 +33,6 @@
             <Column>
                 <Text text="Price"/>
             </Column>
-            <Column>
-                <Text text="Stock"/>
-            </Column>
            
             <Column>
                 <Text text="Actions"/>
@@ -48,7 +45,6 @@
                 <Text text="{book_ID}"/>
                 <Text text="{amount}"/>
                 <Text text="{parent_ID}"/>
-                <Text text="{stock}"/>
                 <HBox>
                     <Button icon="sap-icon://edit" press="onEdit"/>
                     <Button icon="sap-icon://delete" press="onDelete"/>
