@@ -142,7 +142,8 @@ sap.ui.define([
         },
 
         onListItem:function(){
-            alert("List Item");
+            const oRouter = this.getOwnerComponent().getRouter()
+            oRouter.navTo("listItem");
         }
         
 
