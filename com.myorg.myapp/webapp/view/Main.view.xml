@@ -15,6 +15,7 @@
          <Toolbar >
             <Title text="Books"/>
             <ToolbarSpacer/>
+            <SearchField width="30%" />
             <Button text="Add" press="onAdd" icon="sap-icon://add" />
             <Button text="ListItem" press="onListItem" />
          </Toolbar>
