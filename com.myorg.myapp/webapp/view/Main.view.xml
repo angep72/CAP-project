@@ -106,7 +106,8 @@
                 <Label text="Price" />
                 <Input id="priceInput"
                 type="Number"
-                valueStateText="The price should a valid number" />
+                valueStateText="The price should a valid number"
+                change="validatePrice" />
                 <Label text="Stock" />
                 <Input id="stockInput" />
                 <HBox>
