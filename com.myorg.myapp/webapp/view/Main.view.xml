@@ -85,14 +85,14 @@
             class="sapUiContentPadding"
         >
             <VBox>
-               <Label text="Book ID" />
-<Input
-    id="idInput"
-    type="Number"
-    valueStateText="The ID must be a number"
-    liveChange="validateBookId"
-    required="true"
-/>
+                <Label text="Book ID " />
+                <Input
+                    id="idInput"
+                    type="Number"
+                    valueStateText="The ID must be a number"
+                    liveChange="validateBookId"
+                    required="true"
+                />
                 <Label text="Title" />
                 <Input
                     id="titleInput"
