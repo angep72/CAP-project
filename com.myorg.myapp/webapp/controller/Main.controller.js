@@ -163,7 +163,11 @@ sap.ui.define([
         },
         validateTitle: function(oEvent) {
             var oInput = oEvent.getSource();
-             var bValidInput = /^[a-zA-Z\s]+$/.test(sValue); // Regex to check if the input contains only letters and spaces
+            var bValidInput = /^[a-zA-Z\s]+$/.test(sValue); // Regex to check if the input contains only letters and spaces
+            if (sValue === "") {
+                
+            }
+
             
         }
 
