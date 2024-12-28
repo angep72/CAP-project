@@ -9,13 +9,13 @@
 	}">
 
 	<Page
-		>	<content>
+		class="sapUiSmallMargin">	<content>
 		 <Table id="idTable" items="{/Books}" >
          <headerToolbar>
          <Toolbar >
             <Title text="Books"/>
             <ToolbarSpacer/>
-            <SearchField width="30%" />
+            <SearchField width="30%"  />
             <Button text="sort" icon="sap-icon://sort" />
             <Button text="Add" press="onAdd" icon="sap-icon://add" />
             <Button text="ListItem" press="onListItem" />
