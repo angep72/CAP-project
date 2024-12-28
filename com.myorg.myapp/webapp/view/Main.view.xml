@@ -85,20 +85,21 @@
             class="sapUiContentPadding"
         >
             <VBox>
-                <Label text="Book ID" />
-                <Input
-                    id="idInput"
-                    type="Number"
-                    valueStateText="The ID must be a number"
-                    change="validateBookId"
-                    required="true"
-                />
+               <Label text="Book ID" />
+<Input
+    id="idInput"
+    type="Number"
+    valueStateText="The ID must be a number"
+    liveChange="validateBookId"
+    required="true"
+/>
                 <Label text="Title" />
                 <Input
                     id="titleInput"
                     type="Text"
                     valueStateText="The title must be a valid string"
                     change="validateTitle"
+                    required="false"
                 />
                 <Label text="Author" />
                 <Input
@@ -115,11 +116,12 @@
                     change="validatePrice"
                 />
                 <Label text="Stock" />
-                <Input id="stockInput"
-                type="Number"
-                valueStateText="the stock should be a valid number"
-                change="validateStock"
-                 />
+                <Input
+                    id="stockInput"
+                    type="Number"
+                    valueStateText="the stock should be a valid number"
+                    change="validateStock"
+                />
                 <HBox>
                     <Button
                         text="Save"
@@ -132,24 +134,33 @@
                 </HBox>
             </VBox>
         </Dialog>
-        <Dialog id="editDialog" title="Updating a new Book" class="sapUiContentPadding">
-        <VBox>
-        <Label text="BookId update"/>
-        <Input id="editId" />
-        <Label text="Title" />
-        <Input id="editTitle"/>
-        <Label text="Author"/>
-        <Input id="editAuthor"/>
-        <Label text="Stock"/>
-        <Input id="editStock"/>
-        <Label text="Price" />
-        <Input id="editPrice"/>
-        <HBox>
-        <Button text="save edited" press="onSaveEdit"/>
-        <Button text="cancel edit" press="onCancelEdit"/>
-        </HBox>
-        </VBox>
-
+        <Dialog
+            id="editDialog"
+            title="Updating a new Book"
+            class="sapUiContentPadding"
+        >
+            <VBox>
+                <Label text="BookId update" />
+                <Input id="editId" />
+                <Label text="Title" />
+                <Input id="editTitle" />
+                <Label text="Author" />
+                <Input id="editAuthor" />
+                <Label text="Stock" />
+                <Input id="editStock" />
+                <Label text="Price" />
+                <Input id="editPrice" />
+                <HBox>
+                    <Button
+                        text="save edited"
+                        press="onSaveEdit"
+                    />
+                    <Button
+                        text="cancel edit"
+                        press="onCancelEdit"
+                    />
+                </HBox>
+            </VBox>
         </Dialog>
     </Page>
 </mvc:View>

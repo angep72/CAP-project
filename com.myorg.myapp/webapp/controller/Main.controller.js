@@ -146,16 +146,20 @@ sap.ui.define([
             const oRouter = this.getOwnerComponent().getRouter()
             oRouter.navTo("listItem");
         },
-        validateBookId:function(oEvent){
-           const input =oEvent.getSource()
-           const value = input.getValue()
-           if(!/^\d+$/.test(value)){
-            input.setValueState(ValueState.error)
-            input.setValueStateText("Name is required")
-            return false
-           }
-           input.setValueState("None");
-           return true
+        validateBookId: function(oEvent) {
+            var oInput = oEvent.getSource();
+            var sValue = oInput.getValue();
+            var bValidInput = /^\d+$/.test(sValue); // Regex to check if the input contains only digits
+
+            if (sValue === "") {
+                oInput.setValueState("Error");
+                oInput.setValueStateText("Book ID is required");
+            } else if (!bValidInput) {
+                oInput.setValueState("Error");
+                oInput.setValueStateText("Book ID must be a number");
+            } else {
+                oInput.setValueState("None");
+            }
         }
         
 
