@@ -22,6 +22,7 @@ sap.ui.define([
         onCancelAdd: function () {
             this.byId("addDialog").close();
         },
+    
         onSaveAdd: function () {
             const oModel = this.getView().getModel();
 
@@ -144,6 +145,14 @@ sap.ui.define([
         onListItem:function(){
             const oRouter = this.getOwnerComponent().getRouter()
             oRouter.navTo("listItem");
+        },
+        validateBookId:function(oEvent){
+           const input =oEvent.getSource()
+           const value = input.getValue()
+           if(!/^\d+$/.test(value)){
+            input.setValueState("error")
+            return false
+           }
         }
         
 
