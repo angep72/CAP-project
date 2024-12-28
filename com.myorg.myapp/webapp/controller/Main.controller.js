@@ -130,7 +130,7 @@ sap.ui.define([
                 this.byId("editDialog").close();
                 
                 // Refresh the list binding
-                const oList = this.byId("booksList"); // Adjust ID based on your view
+                const oList = this.byId("idTable"); // Adjust ID based on your view
                 if (oList) {
                     oList.getBinding("items").refresh();
                 }
