@@ -163,18 +163,8 @@ sap.ui.define([
         },
         validateTitle: function(oEvent) {
             var oInput = oEvent.getSource();
-            var sValue = oInput.getValue();
-            var bValidInput = /^[a-zA-Z\s]+$/.test(sValue); // Regex to check if the input contains only letters and spaces
-
-            if (sValue === "") {
-                oInput.setValueState("Error");
-                oInput.setValueStateText("Title is required");
-            } else if (!bValidInput) {
-                oInput.setValueState("Error");
-                oInput.setValueStateText("Title must contain only letters and spaces");
-            } else {
-                oInput.setValueState("None");
-            }
+            
+            
         }
 
         
