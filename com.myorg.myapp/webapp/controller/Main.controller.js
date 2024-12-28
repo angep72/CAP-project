@@ -166,7 +166,8 @@ sap.ui.define([
             var bValidInput = /^[a-zA-Z\s]+$/.test(sValue); // Regex to check if the input contains only letters and spaces
             if (sValue === "") {
                  oInput.setValueState("Error");
-  
+                   oInput.setValueStateText("Title is required");
+ 
             }
 
             
