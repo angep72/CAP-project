@@ -72,12 +72,21 @@
 					"pattern": "",
 					"name": "main",
 					"target": "main"
+				},
+				{
+					"pattern": "listItem",
+                    "name": "listItem",
+                    "target": "listItem"
 				}
 			],
 			"targets": {
 				"main": {
 					"viewId": "main",
 					"viewName": "Main"
+				},
+				"listItem": {
+					"viewId": "listItem",
+                    "viewName": "ListItem"
 				}
 			}
 		}
