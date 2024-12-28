@@ -104,7 +104,9 @@
                 valueStateText="The author should be a valid name"
                 change="validateAuthor" />
                 <Label text="Price" />
-                <Input id="priceInput" />
+                <Input id="priceInput"
+                type="Number"
+                valueStateText="The price should a valid number" />
                 <Label text="Stock" />
                 <Input id="stockInput" />
                 <HBox>
