@@ -91,6 +91,7 @@
                     type="Number"
                     valueStateText="The ID must be a number"
                     change="validateBookId"
+                    required="true"
                 />
                 <Label text="Title" />
                 <Input
