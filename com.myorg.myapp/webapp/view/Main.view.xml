@@ -132,5 +132,12 @@
                 </HBox>
             </VBox>
         </Dialog>
+        <Dialog id="editDialog" title="Updating a new Book" class="sapUiContentPadding">
+        <VBox>
+        <Label text="BookId update"/>
+        <Input id="editId" />
+        </VBox>
+
+        </Dialog>
     </Page>
 </mvc:View>

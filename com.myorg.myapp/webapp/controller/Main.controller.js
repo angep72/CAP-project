@@ -150,7 +150,8 @@ sap.ui.define([
            const input =oEvent.getSource()
            const value = input.getValue()
            if(!/^\d+$/.test(value)){
-            input.setValueState("error")
+            input.setValueState(ValueState.error)
+            input.setValueStateText("Name is required")
             return false
            }
            input.setValueState("None");
