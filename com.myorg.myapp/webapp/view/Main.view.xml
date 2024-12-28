@@ -99,7 +99,10 @@
                 change="validateTitle"
                 />
                 <Label text="Author" />
-                <Input id="authorInput" />
+                <Input id="authorInput"
+                type="Text"
+                valueStateText="The author should be a valid name"
+                change="validateAuthor" />
                 <Label text="Price" />
                 <Input id="priceInput" />
                 <Label text="Stock" />
