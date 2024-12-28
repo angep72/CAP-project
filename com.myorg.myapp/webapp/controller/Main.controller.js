@@ -174,9 +174,7 @@ sap.ui.define([
             }else {
                 oInput.setValueState("None");}
             
-        }
-
-        
+        }  
 
     });
 });
