@@ -168,7 +168,8 @@ sap.ui.define([
                  oInput.setValueState("Error");
                    oInput.setValueStateText("Title is required");
              } else if (!bValidInput) {
-                
+                oInput.setValueState("Error");
+                 oInput.setValueStateText("Title must contain only letters and spaces");  
 
             }
 
