@@ -10,8 +10,8 @@
 
 	<Page
 		title="{i18n>appTitle}"
-		id="page" >	<content>
-		 <Table id="idTable" items="{/Books}" >
+		id="pageLine" >	<content>
+		 <Table id="idTableLine" items="{/LineItems}" >
          <headerToolbar>
          <Toolbar >
             <Title text="Books"/>
@@ -45,9 +45,9 @@
             <ColumnListItem>
                 <cells>
                 <Text text="{ID}"/>
-                <Text text="{title}"/>
-                <Text text="{author}"/>
-                <Text text="{price}"/>
+                <Text text="{book_ID}"/>
+                <Text text="{amount}"/>
+                <Text text="{parent_ID}"/>
                 <Text text="{stock}"/>
                 <HBox>
                     <Button icon="sap-icon://edit" press="onEdit"/>
@@ -59,18 +59,18 @@
     </Table>
 		</content>
         
-        <Dialog id="addDialog" title="Add Book" class="sapUiContentPadding">
+        <Dialog id="addDialog-List" title="Add Book" class="sapUiContentPadding">
         <VBox>
         <Label text="Book ID"/>
-        <Input id="idInput"/>
+        <Input id="idInputList"/>
         <Label text="Title"/>
-        <Input id="titleInput"/>
+        <Input id="titleInputList"/>
         <Label text="Author"/>
-        <Input id="authorInput"/>
+        <Input id="authorInputList"/>
         <Label text="Price"/>
-        <Input id="priceInput"/>
+        <Input id="priceInputList"/>
         <Label text="Stock"/>
-        <Input id="stockInput"/>
+        <Input id="stockInputList"/>
         <HBox>
             <Button text="Save" press="onSaveAdd"/>
             <Button text="Cancel" press="onCancelAdd"/>

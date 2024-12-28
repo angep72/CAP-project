@@ -139,8 +139,12 @@ sap.ui.define([
                 console.error(oError);
                 MessageBox.error("Update failed: " + (oError.message || oError));
             });
+        },
+
+        onListItem:function(){
+            const oRouter = this.getOwnerComponent().getRouter()
+            oRouter.navTo("listItem");
         }
-        
         
 
     });
