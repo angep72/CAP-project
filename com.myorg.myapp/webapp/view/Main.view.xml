@@ -11,7 +11,7 @@
 	<Page
 		title="{i18n>appTitle}"
 		id="page" >	<content>
-		 <Table id="idTable" items="{/Books}" >
+		 <Table id="idTable" items="{/Books}" mode="SingleSelect">
          <headerToolbar>
          <Toolbar >
             <Title text="Books"/>
@@ -44,7 +44,7 @@
             <ColumnListItem>
                 <cells>
                 <Text text="{ID}"/>
-                <Text text="{title}"/>
+                <Text text="{book_ID}"/>
                 <Text text="{author}"/>
                 <Text text="{price}"/>
                 <Text text="{stock}"/>
