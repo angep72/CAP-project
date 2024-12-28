@@ -144,6 +144,10 @@
         <Input id="editStock"/>
         <Label text="Price" />
         <Input id="editPrice"/>
+        <HBox>
+        <Button text="save edited" press="onSaveEdit"/>
+        <Button text="cancel edit" press="onCancelEdit"/>
+        </HBox>
         </VBox>
 
         </Dialog>
