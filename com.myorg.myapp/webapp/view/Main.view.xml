@@ -93,23 +93,32 @@
                     change="validateBookId"
                 />
                 <Label text="Title" />
-                <Input id="titleInput" 
-                type="Text"
-                valueStateText="The title must be a valid string"
-                change="validateTitle"
+                <Input
+                    id="titleInput"
+                    type="Text"
+                    valueStateText="The title must be a valid string"
+                    change="validateTitle"
                 />
                 <Label text="Author" />
-                <Input id="authorInput"
-                type="Text"
-                valueStateText="The author should be a valid name"
-                change="validateAuthor" />
+                <Input
+                    id="authorInput"
+                    type="Text"
+                    valueStateText="The author should be a valid name"
+                    change="validateAuthor"
+                />
                 <Label text="Price" />
-                <Input id="priceInput"
-                type="Number"
-                valueStateText="The price should a valid number"
-                change="validatePrice" />
+                <Input
+                    id="priceInput"
+                    type="Number"
+                    valueStateText="The price should a valid number"
+                    change="validatePrice"
+                />
                 <Label text="Stock" />
-                <Input id="stockInput" />
+                <Input id="stockInput"
+                type="Number"
+                valueStateText="the stock should be a valid number"
+                change="validateStock"
+                 />
                 <HBox>
                     <Button
                         text="Save"
