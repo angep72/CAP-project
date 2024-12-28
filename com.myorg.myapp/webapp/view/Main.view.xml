@@ -99,7 +99,7 @@
                     type="Text"
                     valueStateText="The title must be a valid string"
                     change="validateTitle"
-                    required="false"
+                    required="true"
                 />
                 <Label text="Author" />
                 <Input
