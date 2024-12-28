@@ -4,14 +4,12 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
     controllerName="com.myorg.myapp.controller.Main"
-	core:require="{
-		formatter: 'com/myorg/myapp/model/formatter'
-	}">
 
-	<Page
+	>
+    <Page
 		title="{i18n>appTitle}"
-		id="page" >	<content>
-		 <Table id="idTable" items="{/Books}" >
+		id="page-list" >	<content>
+		 <Table id="listItem"  >
          <headerToolbar>
          <Toolbar >
             <Title text="Books"/>
@@ -58,26 +56,7 @@
         </items>
     </Table>
 		</content>
-        
-        <Dialog id="addDialog" title="Add Book" class="sapUiContentPadding">
-        <VBox>
-        <Label text="Book ID"/>
-        <Input id="idInput"/>
-        <Label text="Title"/>
-        <Input id="titleInput"/>
-        <Label text="Author"/>
-        <Input id="authorInput"/>
-        <Label text="Price"/>
-        <Input id="priceInput"/>
-        <Label text="Stock"/>
-        <Input id="stockInput"/>
-        <HBox>
-            <Button text="Save" press="onSaveAdd"/>
-            <Button text="Cancel" press="onCancelAdd"/>
-        </HBox>
-         </VBox>
-        </Dialog>
-       
+           
 	</Page>
 
-</mvc:View>
+    </mvc:View>
