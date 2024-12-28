@@ -63,7 +63,10 @@
         <Dialog id="addDialog" title="Add Book" class="sapUiContentPadding">
         <VBox>
         <Label text="Book ID"/>
-        <Input id="idInput"/>
+        <Input id="idInput"
+        type="Number"
+        valueStateText="The ID must be a number"
+        />
         <Label text="Title"/>
         <Input id="titleInput"/>
         <Label text="Author"/>
