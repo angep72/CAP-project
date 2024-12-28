@@ -167,7 +167,9 @@ sap.ui.define([
             if (sValue === "") {
                  oInput.setValueState("Error");
                    oInput.setValueStateText("Title is required");
- 
+             } else if (!bValidInput) {
+                
+
             }
 
             
