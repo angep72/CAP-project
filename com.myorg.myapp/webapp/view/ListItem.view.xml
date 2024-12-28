@@ -47,7 +47,7 @@
                 <Text text="{ID}"/>
                 <Text text="{book_ID}"/>
                 <Text text="{amount}"/>
-                <Text text="{price}"/>
+                <Text text="{parent_ID}"/>
                 <Text text="{stock}"/>
                 <HBox>
                     <Button icon="sap-icon://edit" press="onEdit"/>
