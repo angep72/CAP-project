@@ -7,6 +7,7 @@ sap.ui.define([
     "use strict";
 
     return BaseController.extend("com.myorg.myapp.controller.Main", {
+		//This controller uses Odata version 4
         onInit: function () {
             const oModel = new ODataModel({
                 serviceUrl: "http://localhost:4000/odata/",
