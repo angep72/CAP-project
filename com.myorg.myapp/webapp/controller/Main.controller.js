@@ -149,6 +149,7 @@ sap.ui.define([
             const oRouter = this.getOwnerComponent().getRouter()
             oRouter.navTo("listItem");
         },
+	     // This function is used to validate id 
         validateBookId: function(oEvent) {
             var oInput = oEvent.getSource();
             var sValue = oInput.getValue();
