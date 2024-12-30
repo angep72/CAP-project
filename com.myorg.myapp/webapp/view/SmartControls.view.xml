@@ -1,22 +1,24 @@
 <mvc:View
-	xmlns="sap.m"
-	xmlns:smartForm="sap.ui.comp.smartform"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:sap.ui.layout="sap.ui.layout"
-	xmlns:smartField="sap.ui.comp.smartfield">
-	<smartForm:SmartForm editable="true">
-		<smartForm:layout>
-			<smartForm:ColumnLayout 
-				emptyCellsLarge="4"
-				labelCellsLarge="4"
-				columnsM="1"
-				columnsL="1"
-				columnsXL="1"/>
-		</smartForm:layout>
-		<smartForm:Group>
-			<smartForm:GroupElement>
-				<smartField:SmartField value="{Price}" id="idPrice"/>
-			</smartForm:GroupElement>
-		</smartForm:Group>
-	</smartForm:SmartForm>
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:smartTable="sap.ui.comp.smarttable"
+>
+  <VBox>
+    <!-- SmartTable Control -->
+    <smartTable:SmartTable
+      id="smartTable"
+      entitySet="YourEntitySet"
+      tableType="Table"
+      smartFilterId="smartFilter"
+      useVariantManagement="true"
+      useTablePersonalisation="true"
+      showRowCount="true"
+      persistencyKey="smartTable"
+      header="Smart Table Example"
+      editable="false">
+    </smartTable:SmartTable>
+
+    <!-- SmartFilterControl for dynamic filtering -->
+    <smartFilter:SmartFilter id="smartFilter" entitySet="YourEntitySet" />
+  </VBox>
 </mvc:View>

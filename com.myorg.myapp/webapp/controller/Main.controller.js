@@ -174,7 +174,11 @@ sap.ui.define([
             }else {
                 oInput.setValueState("None");}
             
-        }  
+        }  ,
+        onSmartControls:function(){
+            const oRouter = this.getOwnerComponent().getRouter()
+            oRouter.navTo("smartControls");
+        }
 
     });
 });
