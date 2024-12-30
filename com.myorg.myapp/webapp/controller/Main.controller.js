@@ -24,7 +24,7 @@ sap.ui.define([
         onCancelAdd: function () {
             this.byId("addDialog").close();
         },
-    
+       // This function is used to save new product
         onSaveAdd: function () {
             const oModel = this.getView().getModel();
 
