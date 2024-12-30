@@ -46,6 +46,7 @@ sap.ui.define([
             });
 
         },
+	    //This function is used delete the entry 
         onDelete: function (oEvent) {
             const item = oEvent.getSource().getParent();
             const context = item.getBindingContext();
