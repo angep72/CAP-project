@@ -144,7 +144,7 @@ sap.ui.define([
                 MessageBox.error("Update failed: " + (oError.message || oError));
             });
         },
-
+        //this function is used to navigate to another page
         onListItem:function(){
             const oRouter = this.getOwnerComponent().getRouter()
             oRouter.navTo("listItem");
