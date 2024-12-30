@@ -17,7 +17,7 @@
             <Title text="Books"/>
             <ToolbarSpacer/>
             <Button text="Add" press="onAdd" icon="sap-icon://add" />
-            <Button text="ListItem" press="onListItem" />
+            <Button text="smartControls" press="onSmartControls" />
          </Toolbar>
          </headerToolbar>
         <columns>
