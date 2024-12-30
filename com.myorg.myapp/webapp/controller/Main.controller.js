@@ -20,6 +20,7 @@ sap.ui.define([
         onAdd: function () {
             this.byId("addDialog").open();
         },
+	    // This function is used to close the creating new entry dialog
         onCancelAdd: function () {
             this.byId("addDialog").close();
         },
