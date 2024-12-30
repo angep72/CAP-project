@@ -37,6 +37,7 @@ sap.ui.define([
 
 
             };
+		//This is the function that help us to designe new products for posting
             const oList = oModel.bindList("/Books");
             const oContext = oList.create(newProduct);
             oContext.created().then(() => {
