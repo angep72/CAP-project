@@ -16,7 +16,7 @@ sap.ui.define([
 
             this.getView().setModel(oModel);
         },
-
+       // This function is used to open dialog
         onAdd: function () {
             this.byId("addDialog").open();
         },
