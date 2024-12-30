@@ -88,6 +88,7 @@ sap.ui.define([
         onCancelEdit: function () {
             this.byId("editDialog").close();
         },
+	    //The function is used to keep the upadated column
         onSaveEdit: function() {
             const oModel = this.getView().getModel();
             
