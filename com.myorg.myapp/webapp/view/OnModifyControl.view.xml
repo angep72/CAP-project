@@ -4,7 +4,7 @@
 >
     
     <!-- Navigation section -->
-    <VBox>
+    <HBox>
         <!-- First Link -->
         <Link
             text="Link 1"
@@ -16,5 +16,5 @@
             press="onLinkPress"
             id="link2"
             class="linkStyle"/>
-    </VBox>
+    </HBox>
 </mvc:View>
