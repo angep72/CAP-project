@@ -83,7 +83,12 @@
 					"pattern": "smartControls",
                     "name": "smartControls",
                     "target": "smartControls"
-				}
+				},
+				{
+                    "pattern": "OnModifyControl",
+                    "name": "OnModifyControl",
+                    "target": "OnModifyControl"
+                }
 			],
 			"targets": {
 				"main": {
@@ -97,7 +102,11 @@
 				"smartControls": {
 					"viewId": "smartControls",
                     "viewName": "SmartControls"
-				}
+				},
+				"OnModifyControl": {
+                    "viewId": "OnModifyControl",
+                    "viewName": "OnModifyControl"
+                }
 			}
 		}
 	}
