@@ -1,0 +1,20 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    
+    <!-- Navigation section -->
+    <VBox>
+        <!-- First Link -->
+        <Link
+            text="Link 1"
+            press="onLinkPress"
+            id="link1"
+            class="linkStyle"/>
+        <Link
+            text="Link 2"
+            press="onLinkPress"
+            id="link2"
+            class="linkStyle"/>
+    </VBox>
+</mvc:View>

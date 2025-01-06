@@ -22,6 +22,10 @@ sap.ui.define([
         onCancelAdd: function () {
             this.byId("addDialog").close();
         },
+        onModify:function () {
+            const oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("OnModifyControl");
+        },
     
         onSaveAdd: function () {
             const oModel = this.getView().getModel();
