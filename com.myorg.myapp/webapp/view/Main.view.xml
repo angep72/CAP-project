@@ -23,6 +23,8 @@
                             text="sort"
                             icon="sap-icon://sort"
                         />
+                        <Button text="onModified-CAP"
+                        press="onModify"/>
                         <Button
                             text="Add"
                             press="onAdd"

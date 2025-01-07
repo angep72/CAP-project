@@ -23,7 +23,7 @@ sap.ui.define([
 	    // This function is used to close the creating new entry dialog
         onCancelAdd: function () {
             this.byId("addDialog").close();
-        },
+        }
        // This function is used to save new product
         onSaveAdd: function () {
             const oModel = this.getView().getModel();

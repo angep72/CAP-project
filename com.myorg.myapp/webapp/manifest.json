@@ -23,6 +23,13 @@
 	},
 
 	"sap.ui5": {
+  "resources": {
+      "css": [
+          {
+              "uri": "css/style.css"
+          }
+      ]
+  },
 		"rootView": {
 			"viewName": "com.myorg.myapp.view.App",
 			"type": "XML",
@@ -83,7 +90,12 @@
 					"pattern": "smartControls",
                     "name": "smartControls",
                     "target": "smartControls"
-				}
+				},
+				{
+                    "pattern": "OnModifyControl",
+                    "name": "OnModifyControl",
+                    "target": "OnModifyControl"
+                }
 			],
 			"targets": {
 				"main": {
@@ -97,7 +109,11 @@
 				"smartControls": {
 					"viewId": "smartControls",
                     "viewName": "SmartControls"
-				}
+				},
+				"OnModifyControl": {
+                    "viewId": "OnModifyControl",
+                    "viewName": "OnModifyControl"
+                }
 			}
 		}
 	}
