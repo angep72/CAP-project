@@ -3,7 +3,8 @@
   xmlns:mvc="sap.ui.core.mvc"
   xmlns:f="sap.f"
   xmlns:card="sap.f.cards"
-  xmlns:l="sap.ui.layout">
+  xmlns:l="sap.ui.layout"
+  controllerName="com.myorg.myapp.controller.Main">
 
   <!-- IconTabBar -->
   <IconTabBar
@@ -25,26 +26,16 @@
       class="sapUiMediumMarginBottom sapUiShadowDetail">
       <f:header>
         <card:Header
-          title="Team Distribution"
-          subtitle="Overview of team members"
-          statusText="Ange, 24"
-          iconSrc="sap-icon://group"/>
+          title="Browse Books"
+          subtitle="Overviwe of the books"
+          iconSrc="sap-icon://education"/>
       </f:header>
       <f:content>
-        <List>
-          <StandardListItem
-            title="Development Team"
-            description="12 Members"
-            icon="sap-icon://developer"/>
-          <StandardListItem
-            title="QA Team"
-            description="8 Members"
-            icon="sap-icon://quality-issue"/>
-          <StandardListItem
-            title="Operations Team"
-            description="6 Members"
-            icon="sap-icon://technical-object"/>
-        </List>
+      <Button
+      text="Let's go to shoop!!"
+      icon="sap-icon://study-leave"
+      press="onButtonPress" 
+      class="sapUiSmallPadding sapUiSmallMargin" />
       </f:content>
     </f:Card>
 

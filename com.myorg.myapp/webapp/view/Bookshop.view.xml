@@ -1,0 +1,126 @@
+<mvc:View xmlns:table="sap.ui.table"
+    xmlns="sap.uxap"
+    xmlns:m="sap.m"
+    xmlns:F="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    >
+    <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false"
+    headerContentPinnable="true" isChildPage="true" upperCaseAnchorBar="false">
+  <headerTitle>
+	<ObjectPageDynamicHeaderTitle>
+
+		<expandedHeading>
+			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+				<m:Title text="Pauline" wrapping="true" class="sapUiTinyMarginEnd"/>
+				
+			</m:FlexBox>
+		</expandedHeading>
+
+		<snappedHeading>
+			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+				<m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+					<m:Title text="Ange Pauline" wrapping="true" class="sapUiTinyMarginEnd"/>
+				</m:FlexBox>
+				<m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+					<m:ObjectMarker type="Favorite" class="sapUiTinyMarginEnd"/>
+					<m:ObjectMarker type="Flagged"/>
+					<m:Button icon="sap-icon://private" type="Transparent"/>
+					<m:Button icon="sap-icon://arrow-down" type="Transparent"/>
+				</m:FlexBox>
+			</m:FlexBox>
+		</snappedHeading>
+
+		<expandedContent>
+			<m:Text text="Senior Developer" />
+		</expandedContent>
+
+		<snappedContent>
+		   <m:Text text="Senior Developer" />
+		</snappedContent>
+
+		<actions>
+        <m:ToggleButton text="Edit" type="Emphasized" press="onEditToggleButtonPress"/>
+			<m:OverflowToolbarButton type="Transparent" icon="sap-icon://copy"/>
+			<m:OverflowToolbarButton type="Transparent" icon="sap-icon://delete"/>
+			<m:OverflowToolbarButton type="Transparent" icon="sap-icon://add"/>
+			<m:OverflowToolbarButton type="Transparent" icon="sap-icon://paste"/>
+		</actions>
+
+		<navigationActions>
+			<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" tooltip="Enter Full Screen Mode"/>
+			<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" tooltip="Close column"/>
+		</navigationActions>
+
+	</ObjectPageDynamicHeaderTitle>
+</headerTitle>
+<headerContent>
+<m:FlexBox wrap="Wrap" fitContainer="true" alignContent="Stretch">
+<m:Avatar displaySize="L" displayShape="Square" class="sapUiTinyMarginEnd"></m:Avatar>
+<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+<m:Label text="Main Product"></m:Label>
+</m:VBox>
+<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+<m:Label text="Sub Product"></m:Label>
+</m:VBox>
+<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
+<m:Label text="Price"></m:Label>
+</m:VBox>
+</m:FlexBox>
+</headerContent>
+<sections>
+<ObjectPageSection title="General Information">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<form:SimpleForm
+								maxContainerCols="2"
+								editable="false"
+								layout="ResponsiveGridLayout"
+								labelSpanL="12"
+								labelSpanM="12"
+								emptySpanL="0"
+								emptySpanM="0"
+								columnsL="1"
+								columnsM="1">
+								<form:content>
+								<m:Table >
+                                <m:headerToolbar>
+                                <m:Toolbar >
+                                <m:Title text="Books" />
+                                </m:Toolbar>
+                                </m:headerToolbar>
+                                </m:Table>
+									
+								</form:content>
+							</form:SimpleForm>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+        <ObjectPageSection title="Suppliers">
+        <subSections>
+        <ObjectPageSubSection >
+        <blocks>
+       <m:List id="listsuppliers" items="{/Suppliers}">
+       <m:items>
+       <m:StandardListItem type="Navigation" title="{Name}" description="{ID}" press="onSupplierDetail"></m:StandardListItem>
+       </m:items>
+       </m:List>
+        </blocks>
+        </ObjectPageSubSection>
+        </subSections>
+        </ObjectPageSection>
+</sections>
+<footer>
+<m:OverflowToolbar >
+<m:ToolbarSpacer />
+<m:Button type="Accept" text="Save"></m:Button>
+<m:Button type="Reject" text="Cancel"></m:Button>
+</m:OverflowToolbar>
+</footer>
+
+    </ObjectPageLayout>
+    
+    
+</mvc:View>

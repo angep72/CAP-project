@@ -31,20 +31,7 @@
           }
       ]
   },
-"sap.card": {
-		"type": "Component",
-		"header": {
-			"title": "Site Visit - Peach Valley",
-			"actions": [
-				{
-					"type": "Navigation",
-					"parameters": {
-						"url": "/peachValley"
-					}
-				}
-			]
-		}
-	},
+
 
 		"rootView": {
 			"viewName": "com.myorg.myapp.view.App",
@@ -111,7 +98,12 @@
                     "pattern": "OnModifyControl",
                     "name": "OnModifyControl",
                     "target": "OnModifyControl"
-                }
+                },
+				{
+					"pattern": "bookshop",
+                    "name": "bookshop",
+                    "target": "bookshop"
+				}
 			],
 			"targets": {
 				"main": {
@@ -129,6 +121,10 @@
 				"OnModifyControl": {
                     "viewId": "OnModifyControl",
                     "viewName": "OnModifyControl"
+                },
+				"bookshop": {
+                    "viewId": "bookshop",
+                    "viewName": "Bookshop"
                 }
 			}
 		}

@@ -16,6 +16,10 @@ sap.ui.define([
 
             this.getView().setModel(oModel);
         },
+        onButtonPress:function(){
+           const oRouter = this.getOwnerComponent().getRouter();
+           oRouter.navTo("bookshop")
+        },
        // This function is used to open dialog
         onAdd: function () {
             this.byId("addDialog").open();
