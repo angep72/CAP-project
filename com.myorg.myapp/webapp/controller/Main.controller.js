@@ -7,6 +7,7 @@ sap.ui.define([
     "use strict";
 
     return BaseController.extend("com.myorg.myapp.controller.Main", {
+		//This controller uses Odata version 4
         onInit: function () {
             const oModel = new ODataModel({
                 serviceUrl: "http://localhost:4000/odata/",
@@ -15,18 +16,15 @@ sap.ui.define([
 
             this.getView().setModel(oModel);
         },
-
+       // This function is used to open dialog
         onAdd: function () {
             this.byId("addDialog").open();
         },
+	    // This function is used to close the creating new entry dialog
         onCancelAdd: function () {
             this.byId("addDialog").close();
-        },
-        onModify:function () {
-            const oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("OnModifyControl");
-        },
-    
+        }
+       // This function is used to save new product
         onSaveAdd: function () {
             const oModel = this.getView().getModel();
 
@@ -39,6 +37,7 @@ sap.ui.define([
 
 
             };
+		//This is the function that help us to designe new products for posting
             const oList = oModel.bindList("/Books");
             const oContext = oList.create(newProduct);
             oContext.created().then(() => {
@@ -48,6 +47,7 @@ sap.ui.define([
             });
 
         },
+	    //This function is used delete the entry 
         onDelete: function (oEvent) {
             const item = oEvent.getSource().getParent();
             const context = item.getBindingContext();
@@ -88,6 +88,7 @@ sap.ui.define([
         onCancelEdit: function () {
             this.byId("editDialog").close();
         },
+	    //The function is used to keep the upadated column
         onSaveEdit: function() {
             const oModel = this.getView().getModel();
             
@@ -145,11 +146,12 @@ sap.ui.define([
                 MessageBox.error("Update failed: " + (oError.message || oError));
             });
         },
-
+        //this function is used to navigate to another page
         onListItem:function(){
             const oRouter = this.getOwnerComponent().getRouter()
             oRouter.navTo("listItem");
         },
+	     // This function is used to validate id 
         validateBookId: function(oEvent) {
             var oInput = oEvent.getSource();
             var sValue = oInput.getValue();
