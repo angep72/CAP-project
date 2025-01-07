@@ -4,6 +4,7 @@
     xmlns:F="sap.f"
     xmlns:form="sap.ui.layout.form"
     xmlns:mvc="sap.ui.core.mvc"
+    controllerName="com.myorg.myapp.controller.Main"
     >
     <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false"
     headerContentPinnable="true" isChildPage="true" upperCaseAnchorBar="false">
@@ -84,7 +85,7 @@
 								columnsL="1"
 								columnsM="1">
 								<form:content>
-								<m:Table >
+								<m:Table id="idTables" items="{/Books}" >
                                 <m:headerToolbar>
                                 <m:Toolbar >
                                 <m:Title text="Books" />
@@ -110,6 +111,11 @@
                                 <m:Text text="Stock"/>
                                 </m:Column>
                                 </m:columns>
+                                <m:items>
+                                <m:ColumnListItem>
+                                <m:Text text="{Title}" />
+                                </m:ColumnListItem>
+                                </m:items>
                                 </m:Table>
 									
 								</form:content>
@@ -122,7 +128,7 @@
         <subSections>
         <ObjectPageSubSection >
         <blocks>
-       <m:List id="listsuppliers" items="{/Suppliers}">
+       <m:List id="listsuppliers" >
        <m:items>
        <m:StandardListItem type="Navigation" title="{Name}" description="{ID}" press="onSupplierDetail"></m:StandardListItem>
        </m:items>
