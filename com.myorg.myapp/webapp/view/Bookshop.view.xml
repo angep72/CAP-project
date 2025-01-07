@@ -113,7 +113,11 @@
                                 </m:columns>
                                 <m:items>
                                 <m:ColumnListItem>
+                                <m:cells>
                                 <m:Text text="{Title}" />
+                                <m:Text text="{Genres}" />
+                                </m:cells>
+                                
                                 </m:ColumnListItem>
                                 </m:items>
                                 </m:Table>
@@ -124,13 +128,15 @@
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
-        <ObjectPageSection title="Suppliers">
+        <ObjectPageSection title="Authors">
         <subSections>
         <ObjectPageSubSection >
         <blocks>
-       <m:List id="listsuppliers" >
+       <m:List id="listsuppliers" items="{/Authors}" >
        <m:items>
-       <m:StandardListItem type="Navigation" title="{Name}" description="{ID}" press="onSupplierDetail"></m:StandardListItem>
+       <m:StandardListItem type="Navigation" title="{Name}" description="{Age}" press="onSupplierDetail">
+       
+       </m:StandardListItem>
        </m:items>
        </m:List>
         </blocks>
