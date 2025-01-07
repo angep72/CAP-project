@@ -96,6 +96,20 @@
                                 <m:Button text="add new product" icon="sap-icon://add"/>
                                 </m:Toolbar>
                                 </m:headerToolbar>
+                                <m:columns>
+                                <m:Column >
+                                <m:Text text="Title" />
+                                </m:Column>
+                                <m:Column >
+                                <m:Text text="Authors"/>
+                                </m:Column>
+                                <m:Column >
+                                <m:Text text="Genres"/>
+                                </m:Column>
+                                <m:Column >
+                                <m:Text text="Stock"/>
+                                </m:Column>
+                                </m:columns>
                                 </m:Table>
 									
 								</form:content>
