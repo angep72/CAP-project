@@ -20,6 +20,10 @@ sap.ui.define([
         onAdd: function () {
             this.byId("addDialog").open();
         },
+        onModify:function () {
+           const oRouter = this.getOwnerComponent().getRouter();
+           oRouter.navTo("OnModifyControl")
+        },
 	    // This function is used to close the creating new entry dialog
         onCancelAdd: function () {
             this.byId("addDialog").close();

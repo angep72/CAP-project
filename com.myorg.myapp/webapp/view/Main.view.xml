@@ -8,7 +8,7 @@
 		formatter: 'com/myorg/myapp/model/formatter'
 	}"
 >
-    <Page class="sapUiSmallMargin">
+    <Page >
         <content>
             <Table
                 id="idTable"

@@ -11,7 +11,27 @@
 			"version": "${version}"
 		}
 	},
-	"sap.card": {
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	
+
+	"sap.ui5": {
+  "resources": {
+      "css": [
+          {
+              "uri": "css/style.css"
+          }
+      ]
+  },
+"sap.card": {
 		"type": "Component",
 		"header": {
 			"title": "Site Visit - Peach Valley",
@@ -26,24 +46,6 @@
 		}
 	},
 
-	"sap.ui": {
-		"technology": "UI5",
-		"icons": {},
-		"deviceTypes": {
-			"desktop": true,
-			"tablet": true,
-			"phone": true
-		}
-	},
-
-	"sap.ui5": {
-  "resources": {
-      "css": [
-          {
-              "uri": "css/style.css"
-          }
-      ]
-  },
 		"rootView": {
 			"viewName": "com.myorg.myapp.view.App",
 			"type": "XML",
