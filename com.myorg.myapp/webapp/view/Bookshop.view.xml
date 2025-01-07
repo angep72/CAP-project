@@ -85,7 +85,7 @@
 								columnsL="1"
 								columnsM="1">
 								<form:content>
-								<m:Table id="idTables" items="{/Books}" >
+								<m:Table id="idTables" items="{/Products}" >
                                 <m:headerToolbar>
                                 <m:Toolbar >
                                 <m:Title text="Books" />
@@ -99,23 +99,22 @@
                                 </m:headerToolbar>
                                 <m:columns>
                                 <m:Column >
-                                <m:Text text="Title" />
+                                <m:Text text="Product Name" />
                                 </m:Column>
                                 <m:Column >
-                                <m:Text text="Authors"/>
-                                </m:Column>
-                                <m:Column >
-                                <m:Text text="Genres"/>
+                                <m:Text text="Description"/>
                                 </m:Column>
                                 <m:Column >
                                 <m:Text text="Stock"/>
                                 </m:Column>
+                                
                                 </m:columns>
                                 <m:items>
                                 <m:ColumnListItem>
                                 <m:cells>
-                                <m:Text text="{Title}" />
-                                <m:Text text="{Genres}" />
+                                <m:Text text="{name}" />
+                                <m:Text text="{description}" />
+                                <m:Text text="{stock}"/>
                                 </m:cells>
                                 
                                 </m:ColumnListItem>
