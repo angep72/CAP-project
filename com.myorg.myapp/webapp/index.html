@@ -9,7 +9,7 @@
 		<title>UI5 Application: com.myorg.myapp</title>
 		<script
 			id="sap-ui-bootstrap"
-			src="resources/sap-ui-core.js"
+			src="https://ui5.sap.com/resources/sap-ui-integration.js"
 			data-sap-ui-resourceroots='{
 				"com.myorg.myapp": "./"
 			}'
@@ -24,6 +24,7 @@
 	</head>
 
 	<body class="sapUiBody">
+		<ui-integration-card manifest="./manifest.json"></ui-integration-card>
 		<div data-sap-ui-component data-name="com.myorg.myapp"></div>
 	</body>
 </html>

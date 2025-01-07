@@ -11,6 +11,20 @@
 			"version": "${version}"
 		}
 	},
+	"sap.card": {
+		"type": "Component",
+		"header": {
+			"title": "Site Visit - Peach Valley",
+			"actions": [
+				{
+					"type": "Navigation",
+					"parameters": {
+						"url": "/peachValley"
+					}
+				}
+			]
+		}
+	},
 
 	"sap.ui": {
 		"technology": "UI5",
