@@ -16,14 +16,22 @@ sap.ui.define([
 
             this.getView().setModel(oModel);
         },
+        onButtonPress:function(){
+           const oRouter = this.getOwnerComponent().getRouter();
+           oRouter.navTo("bookshop")
+        },
        // This function is used to open dialog
         onAdd: function () {
             this.byId("addDialog").open();
         },
+        onModify:function () {
+           const oRouter = this.getOwnerComponent().getRouter();
+           oRouter.navTo("OnModifyControl")
+        },
 	    // This function is used to close the creating new entry dialog
         onCancelAdd: function () {
             this.byId("addDialog").close();
-        }
+        },
        // This function is used to save new product
         onSaveAdd: function () {
             const oModel = this.getView().getModel();

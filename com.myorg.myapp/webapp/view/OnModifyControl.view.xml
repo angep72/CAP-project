@@ -1,20 +1,90 @@
 <mvc:View
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m"
->
-    
-    <!-- Navigation section -->
-    <HBox>
-        <!-- First Link -->
-        <Link
-            text="Link 1"
-            press="onLinkPress"
-            id="link1"
-            class="linkStyle"/>
-        <Link
-            text="Link 2"
-            press="onLinkPress"
-            id="link2"
-            class="linkStyle"/>
-    </HBox>
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.f"
+  xmlns:card="sap.f.cards"
+  xmlns:l="sap.ui.layout"
+  controllerName="com.myorg.myapp.controller.Main">
+
+  <!-- IconTabBar -->
+  <IconTabBar
+    id="idIconTabBar"
+    select="handleIconTabBarSelect"
+    headerBackgroundDesign="Transparent">
+    <items>
+      <IconTabFilter text="Team Distribution" />
+      <IconTabFilter text="Drone Maintenance" />
+      <IconTabFilter text="Drone Development" />
+    </items>
+  </IconTabBar>
+
+  <!-- Cards for each tab -->
+  <HBox class="sapUiSmallMargin">
+    <!-- Team Distribution Card -->
+    <f:Card
+      id="teamDistributionCard"
+      class="sapUiMediumMarginBottom sapUiShadowDetail">
+      <f:header>
+        <card:Header
+          title="Browse Books"
+          subtitle="Overviwe of the books"
+          iconSrc="sap-icon://education"/>
+      </f:header>
+      <f:content>
+      <Button
+      text="Let's go to shoop!!"
+      icon="sap-icon://study-leave"
+      press="onButtonPress" 
+      class="sapUiSmallPadding sapUiSmallMargin" />
+      </f:content>
+    </f:Card>
+
+    <!-- Drone Maintenance Card -->
+    <f:Card
+      id="droneMaintenanceCard"
+      class="sapUiMediumMarginBottom sapUiShadowDetail">
+      <f:header>
+        <card:Header
+          title="Drone Maintenance"
+          subtitle="Latest maintenance updates"
+          statusText="24,Anage"
+          iconSrc="sap-icon://wrench"/>
+      </f:header>
+      <f:content>
+        <VBox class="sapUiSmallMargin">
+          <List>
+            <ObjectListItem
+              title="Drone DX-123"
+              type="Active"
+              number="98%"
+              numberUnit="Health"
+              intro="Last Check: Today"
+              icon="sap-icon://flight">
+              <firstStatus>
+                <ObjectStatus
+                  text="Operational"
+                  state="Success"/>
+              </firstStatus>
+            </ObjectListItem>
+            <ObjectListItem
+              title="Drone DX-456"
+              type="Active"
+              number="85%"
+              numberUnit="Health"
+              intro="Last Check: Yesterday"
+              icon="sap-icon://flight">
+              <firstStatus>
+                <ObjectStatus
+                  text="Maintenance Due"
+                  state="Warning"/>
+              </firstStatus>
+            </ObjectListItem>
+          </List>
+        </VBox>
+      </f:content>
+    </f:Card>
+
+
+  </HBox>
+
 </mvc:View>

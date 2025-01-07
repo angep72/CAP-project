@@ -21,6 +21,7 @@
 			"phone": true
 		}
 	},
+	
 
 	"sap.ui5": {
   "resources": {
@@ -30,6 +31,8 @@
           }
       ]
   },
+
+
 		"rootView": {
 			"viewName": "com.myorg.myapp.view.App",
 			"type": "XML",
@@ -95,7 +98,12 @@
                     "pattern": "OnModifyControl",
                     "name": "OnModifyControl",
                     "target": "OnModifyControl"
-                }
+                },
+				{
+					"pattern": "bookshop",
+                    "name": "bookshop",
+                    "target": "bookshop"
+				}
 			],
 			"targets": {
 				"main": {
@@ -113,6 +121,10 @@
 				"OnModifyControl": {
                     "viewId": "OnModifyControl",
                     "viewName": "OnModifyControl"
+                },
+				"bookshop": {
+                    "viewId": "bookshop",
+                    "viewName": "Bookshop"
                 }
 			}
 		}
