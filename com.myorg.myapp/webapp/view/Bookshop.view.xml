@@ -127,13 +127,13 @@
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
-        <ObjectPageSection title="Authors">
+        <ObjectPageSection title="Orders ">
         <subSections>
         <ObjectPageSubSection >
         <blocks>
-       <m:List id="listsuppliers" items="{/Authors}" >
+       <m:List id="listsuppliers" items="{/Orders}" >
        <m:items>
-       <m:StandardListItem type="Navigation" title="{Name}" description="{Age}" press="onSupplierDetail">
+       <m:StandardListItem type="Navigation" title="{product_ID}" description="{quantity}" press="onSupplierDetail">
        
        </m:StandardListItem>
        </m:items>
