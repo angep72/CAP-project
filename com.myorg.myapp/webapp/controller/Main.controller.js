@@ -236,8 +236,39 @@ sap.ui.define([
                 MessageBox.error("Error creating product: " + error.message);
             });
         },
-        onDeleteOrder:function() {
-            console.log("onDeleteOrder")
+        onOpenDelete:function() {
+            this.byId("DeletingOrder").open();
+        },
+        onCancelOrdering:function() {
+            this.byId("DeletingOrder").close();
+        },
+        onSubmitOrdering:function(){
+            const orderID = this.byId("order-product").getValue();
+            fetch("http://localhost:4004/odata/v4/catalog/deleteOrder", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({  // Convert the object to a JSON string
+                    orderID: orderID
+           
+                   })
+            })
+           .then((response) => {
+             if (!response.ok) {
+                    return response.text().then((errorText) => {
+                        throw new Error(
+                            `HTTP error! Status: ${response.status} - ${errorText}`
+                        );
+                    });
+                }
+                MessageBox.success("Order deleted successfully!");
+                this.onCancelOrdering();
+                this.getView().getModel().refresh();
+            })
+           .catch((error) => {
+             MessageBox.error("Error deleting order: " + error.message);
+             });
         }
         
 
