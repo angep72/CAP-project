@@ -201,8 +201,43 @@ sap.ui.define([
         },
         onCancelOrder:function(){
             this.byId("Place-order").close()
+        },
+        onSubmitOrder: function() {
+            const product_ID = this.byId("new-product").getValue();
+            const quantity = this.byId("quantity").getValue();
+            const customer= this.byId("customer-id").getValue();
+            console.log(product_ID, quantity, customer);
+        
+            fetch("http://localhost:4004/odata/v4/catalog/submitOrder", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({  // Convert the object to a JSON string
+                    product_ID: product_ID,
+                    quantity: quantity  ,
+                    customer:customer
+           
+                   })
+            })
+            .then((response) => {
+                if (!response.ok) {
+                    return response.text().then((errorText) => {
+                        throw new Error(
+                            `HTTP error! Status: ${response.status} - ${errorText}`
+                        );
+                    });
+                }
+                MessageBox.success("Product created successfully!");
+                this.onOrderButton();
+                this.getView().getModel().refresh(true);
+            })
+            .catch((error) => {
+                MessageBox.error("Error creating product: " + error.message);
+            });
         }
         
+
 
     });
 });

@@ -297,9 +297,11 @@
                             >
                                 <m:VBox>
                                     <m:Label text="Product ID" />
-                                    <m:Input id="edit-new-product" />
+                                    <m:Input id="new-product" />
                                     <m:Label text="Quantity" />
                                     <m:Input id="quantity" />
+                                    <m:Label text="Customer Id"/>
+                                    <m:Input  id="customer-id" />
 
                                     <m:HBox>
                                         <m:Button
