@@ -83,8 +83,7 @@
         </VBox>
       </f:content>
     </f:Card>
-
-
   </HBox>
+  
 
 </mvc:View>

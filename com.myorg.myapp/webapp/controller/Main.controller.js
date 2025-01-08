@@ -55,6 +55,9 @@ sap.ui.define([
             });
 
         },
+        onOrderButton:function() {
+            this.byId("Place-order").open()
+        },
 	    //This function is used delete the entry 
         onDelete: function (oEvent) {
             const item = oEvent.getSource().getParent();
@@ -192,6 +195,9 @@ sap.ui.define([
         onSmartControls:function(){
             const oRouter = this.getOwnerComponent().getRouter()
             oRouter.navTo("smartControls");
+        },
+        onOrderButton:function(){
+            this.byId("Place-order").open()
         }
 
     });

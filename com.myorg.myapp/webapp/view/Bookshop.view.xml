@@ -219,61 +219,62 @@
                 <subSections>
                     <ObjectPageSubSection>
                         <blocks>
-                                   <m:Table
-                                        id="Orders"
-                                        items="{/Orders}"
-                                    >
-                                        <m:headerToolbar>
-                                            <m:Toolbar>
-                                                <m:Title text="Orders" />
-                                                <m:ToolbarSpacer />
-                                                <m:SearchField width="30%" />
-                                                <m:Button
-                                                    text="sort"
-                                                    icon="sap-icon://sort"
-                                                />
-                                                <m:Button
-                                                    text="add new Order"
-                                                    icon="sap-icon://shipping-status"
-                                                />
-                                            </m:Toolbar>
-                                        </m:headerToolbar>
-                                        <m:columns>
-                                            <m:Column>
-                                                <m:Text text="Product Ordered" />
-                                            </m:Column>
-                                            <m:Column>
-                                                <m:Text text="Customer" />
-                                            </m:Column>
-                                            <m:Column>
-                                                <m:Text text="Ordered date" />
-                                            </m:Column>
-                                            <m:Column >
-                                            <m:Text text="status" />
-                                            </m:Column>
-                                            <m:Column >
-                                            <m:Text text="quantity orderd"/>
-                                            </m:Column>
-                                        </m:columns>
-                                        <m:items>
-                                            <m:ColumnListItem>
-                                                <m:cells>
-                                                    <m:Text text="{product_ID}" />
-                                                    <m:Text
-                                                        text="{customer}"
-                                                    />
-                                                    <m:Text text="{status}" />
-                                                    <m:Text text="{orderDate}" />
-                                                    <m:Text text="{quantity}"/>
-                                                </m:cells>
-                                            </m:ColumnListItem>
-                                        </m:items>
-                                    </m:Table>
+                            <m:Table
+                                id="Orders"
+                                items="{/Orders}"
+                            >
+                                <m:headerToolbar>
+                                    <m:Toolbar>
+                                        <m:Title text="Orders" />
+                                        <m:ToolbarSpacer />
+                                        <m:SearchField width="30%" />
+                                        <m:Button
+                                            text="sort"
+                                            icon="sap-icon://sort"
+                                        />
+                                        <m:Button
+                                            text="add new Order"
+                                            icon="sap-icon://shipping-status"
+                                            press="onOrderButton"
+                                        />
+                                    </m:Toolbar>
+                                </m:headerToolbar>
+                                <m:columns>
+                                    <m:Column>
+                                        <m:Text text="Product Ordered" />
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Customer" />
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Ordered date" />
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="status" />
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="quantity orderd" />
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem>
+                                        <m:cells>
+                                            <m:Text text="{product_ID}" />
+                                            <m:Text text="{customer}" />
+                                            <m:Text text="{status}" />
+                                            <m:Text text="{orderDate}" />
+                                            <m:Text text="{quantity}" />
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        
                         </blocks>
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>
         </sections>
+        
         <footer>
             <m:OverflowToolbar>
                 <m:ToolbarSpacer />
@@ -287,5 +288,29 @@
                 />
             </m:OverflowToolbar>
         </footer>
+        
     </ObjectPageLayout>
+        <m:Dialog
+                                id="Place-order"
+                                title="Placing Order in my CAP"
+                                class="sapUiContentPadding"
+                            >
+                                <m:VBox>
+                                    <m:Label text="Product ID" />
+                                    <m:Input id="edit-new-product" />
+                                    <m:Label text="Quantity" />
+                                    <m:Input id="quantity" />
+
+                                    <m:HBox>
+                                        <m:Button
+                                            text="Submit Order"
+                                            press="onSubmitOrder"
+                                        />
+                                        <m:Button
+                                            text="cancel Order"
+                                            press="onCancelOrder"
+                                        />
+                                    </m:HBox>
+                                </m:VBox>
+                            </m:Dialog>
 </mvc:View>
