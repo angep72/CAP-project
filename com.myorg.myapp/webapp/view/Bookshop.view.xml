@@ -196,6 +196,9 @@
                                             <m:Column>
                                                 <m:Text text="Stock" />
                                             </m:Column>
+                                            <m:Column >
+                                            <m:Text text="Product ID"/>
+                                            </m:Column>
                                         </m:columns>
                                         <m:items>
                                             <m:ColumnListItem>
@@ -205,6 +208,7 @@
                                                         text="{description}"
                                                     />
                                                     <m:Text text="{stock}" />
+                                                    <m:Text text="{ID}"/>
                                                 </m:cells>
                                             </m:ColumnListItem>
                                         </m:items>
@@ -255,6 +259,9 @@
                                     <m:Column>
                                         <m:Text text="quantity orderd" />
                                     </m:Column>
+                                    <m:Column >
+                                    <m:Text text="action"/>
+                                    </m:Column>
                                 </m:columns>
                                 <m:items>
                                     <m:ColumnListItem>
@@ -264,6 +271,11 @@
                                             <m:Text text="{status}" />
                                             <m:Text text="{orderDate}" />
                                             <m:Text text="{quantity}" />
+                                            <m:HBox >
+                                            <m:Button icon="sap-icon://edit"/>
+                                            <m:Button icon="sap-icon://delete"/>
+
+                                            </m:HBox>
                                         </m:cells>
                                     </m:ColumnListItem>
                                 </m:items>

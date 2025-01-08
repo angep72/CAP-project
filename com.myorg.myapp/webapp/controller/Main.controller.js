@@ -229,8 +229,8 @@ sap.ui.define([
                     });
                 }
                 MessageBox.success("Product created successfully!");
-                this.onOrderButton();
-                this.getView().getModel().refresh(true);
+                this.onCancelOrder();
+                this.getView().getModel().refresh();
             })
             .catch((error) => {
                 MessageBox.error("Error creating product: " + error.message);
