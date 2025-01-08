@@ -198,6 +198,9 @@ sap.ui.define([
         },
         onOrderButton:function(){
             this.byId("Place-order").open()
+        },
+        onCancelOrder:function(){
+            this.byId("Place-order").close()
         }
 
     });
