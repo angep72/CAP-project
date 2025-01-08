@@ -251,6 +251,9 @@
                                             <m:Column >
                                             <m:Text text="status" />
                                             </m:Column>
+                                            <m:Column >
+                                            <m:Text text="quantity orderd"/>
+                                            </m:Column>
                                         </m:columns>
                                         <m:items>
                                             <m:ColumnListItem>
@@ -261,6 +264,7 @@
                                                     />
                                                     <m:Text text="{status}" />
                                                     <m:Text text="{orderDate}" />
+                                                    <m:Text text="{quantity}"/>
                                                 </m:cells>
                                             </m:ColumnListItem>
                                         </m:items>
