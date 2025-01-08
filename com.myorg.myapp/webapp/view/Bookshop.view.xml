@@ -233,8 +233,8 @@
                                                     icon="sap-icon://sort"
                                                 />
                                                 <m:Button
-                                                    text="add new product"
-                                                    icon="sap-icon://add"
+                                                    text="add new Order"
+                                                    icon="sap-icon://shipping-status"
                                                 />
                                             </m:Toolbar>
                                         </m:headerToolbar>
