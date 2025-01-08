@@ -233,8 +233,8 @@
                                         <m:ToolbarSpacer />
                                         <m:SearchField width="30%" />
                                         <m:Button
-                                            text="sort"
-                                            icon="sap-icon://sort"
+                                            text="delete"
+                                            icon="sap-icon://delete"
                                         />
                                         <m:Button
                                             text="add new Order"
@@ -273,7 +273,6 @@
                                             <m:Text text="{quantity}" />
                                             <m:HBox >
                                             <m:Button icon="sap-icon://edit"/>
-                                            <m:Button icon="sap-icon://delete"/>
 
                                             </m:HBox>
                                         </m:cells>
@@ -326,5 +325,11 @@
                                         />
                                     </m:HBox>
                                 </m:VBox>
+                            </m:Dialog>
+                            <m:Dialog id="DeletingOrder" title="Deleting Order" class="sapUiSmallMargin">
+                               <m:VBox>
+                                    <m:Label text="order-ID" />
+                                    <m:Input id="order-product" />
+                    </m:VBox>
                             </m:Dialog>
 </mvc:View>

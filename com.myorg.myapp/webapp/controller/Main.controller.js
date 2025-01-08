@@ -235,6 +235,9 @@ sap.ui.define([
             .catch((error) => {
                 MessageBox.error("Error creating product: " + error.message);
             });
+        },
+        onDeleteOrder:function() {
+            console.log("onDeleteOrder")
         }
         
 
