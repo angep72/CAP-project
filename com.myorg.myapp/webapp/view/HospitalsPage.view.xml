@@ -77,7 +77,7 @@
                     <m:Text text="Please let us know your appointment" />
                 </snappedContent>
 
-                <actions>
+                <!-- <actions>
                     <m:ToggleButton
                         text="Edit"
                         type="Emphasized"
@@ -99,7 +99,7 @@
                         type="Transparent"
                         icon="sap-icon://paste"
                     />
-                </actions>
+                </actions> -->
 
                 <navigationActions>
                     <m:OverflowToolbarButton
