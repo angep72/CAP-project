@@ -45,14 +45,14 @@
       class="sapUiMediumMarginBottom sapUiShadowDetail">
       <f:header>
         <card:Header
-          title="Browse Books"
-          subtitle="Overview of the books"
-          iconSrc="sap-icon://education"/>
+          title="Welcome to Hospital Management"
+          subtitle="Overview of the hospital Management"
+          iconSrc="sap-icon://electronic-medical-record"/>
       </f:header>
       <f:content>
         <Button
-          text="Let's go to shop!!"
-          icon="sap-icon://study-leave"
+          text="Let's visit Near Hospital"
+          icon="sap-icon://electrocardiogram"
           press="onButtonPress" 
           class="sapUiSmallPadding sapUiSmallMargin" />
       </f:content>
