@@ -168,7 +168,7 @@
                                     >
                                         <m:headerToolbar>
                                             <m:Toolbar>
-                                                <m:Title text="Patients Bookings" />
+                                                <m:Title text="Patients who Visited Our Hospital" />
                                                 <m:ToolbarSpacer />
                                                
                                             </m:Toolbar>
