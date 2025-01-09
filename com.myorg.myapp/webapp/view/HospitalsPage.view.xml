@@ -45,7 +45,7 @@
                             class="sapUiTinyMarginEnd"
                         >
                             <m:Title
-                                text="Ange Pauline"
+                                text="Your appointment Matters !!!"
                                 wrapping="true"
                                 class="sapUiTinyMarginEnd"
                             />
@@ -56,11 +56,7 @@
                             alignItems="Center"
                             class="sapUiTinyMarginEnd"
                         >
-                            <m:ObjectMarker
-                                type="Favorite"
-                                class="sapUiTinyMarginEnd"
-                            />
-                            <m:ObjectMarker type="Flagged" />
+                           
                             <m:Button
                                 icon="sap-icon://private"
                                 type="Transparent"
