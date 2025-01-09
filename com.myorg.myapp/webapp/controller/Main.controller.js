@@ -55,6 +55,9 @@ sap.ui.define([
             });
 
         },
+        onOrderButton:function() {
+            this.byId("Place-order").open()
+        },
 	    //This function is used delete the entry 
         onDelete: function (oEvent) {
             const item = oEvent.getSource().getParent();
@@ -192,7 +195,83 @@ sap.ui.define([
         onSmartControls:function(){
             const oRouter = this.getOwnerComponent().getRouter()
             oRouter.navTo("smartControls");
+        },
+        onOrderButton:function(){
+            this.byId("Place-order").open()
+        },
+        onCancelOrder:function(){
+            this.byId("Place-order").close()
+        },
+        onSubmitOrder: function() {
+            const product_ID = this.byId("new-product").getValue();
+            const quantity = this.byId("quantity").getValue();
+            const customer= this.byId("customer-id").getValue();
+            console.log(product_ID, quantity, customer);
+        
+            fetch("http://localhost:4004/odata/v4/catalog/submitOrder", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({  // Convert the object to a JSON string
+                    product_ID: product_ID,
+                    quantity: quantity  ,
+                    customer:customer
+           
+                   })
+            })
+            .then((response) => {
+                if (!response.ok) {
+                    return response.text().then((errorText) => {
+                        throw new Error(
+                            `HTTP error! Status: ${response.status} - ${errorText}`
+                        );
+                    });
+                }
+                MessageBox.success("Product created successfully!");
+                this.onCancelOrder();
+                this.getView().getModel().refresh();
+            })
+            .catch((error) => {
+                MessageBox.error("Error creating product: " + error.message);
+            });
+        },
+        onOpenDelete:function() {
+            this.byId("DeletingOrder").open();
+        },
+        onCancelOrdering:function() {
+            this.byId("DeletingOrder").close();
+        },
+        onSubmitOrdering:function(){
+            const orderID = this.byId("order-product").getValue();
+            fetch("http://localhost:4004/odata/v4/catalog/deleteOrder", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({  // Convert the object to a JSON string
+                    orderID: orderID
+           
+                   })
+            })
+           .then((response) => {
+             if (!response.ok) {
+                    return response.text().then((errorText) => {
+                        throw new Error(
+                            `HTTP error! Status: ${response.status} - ${errorText}`
+                        );
+                    });
+                }
+                MessageBox.success("Order deleted successfully!");
+                this.onCancelOrdering();
+                this.getView().getModel().refresh();
+            })
+           .catch((error) => {
+             MessageBox.error("Error deleting order: " + error.message);
+             });
         }
+        
+
 
     });
 });
