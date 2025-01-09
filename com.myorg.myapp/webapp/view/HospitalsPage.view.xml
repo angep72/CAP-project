@@ -164,46 +164,38 @@
                                 <form:content>
                                     <m:Table
                                         id="idTabless"
-                                        items="{/Products}"
+                                        items="{/Patients}"
                                     >
                                         <m:headerToolbar>
                                             <m:Toolbar>
-                                                <m:Title text="Books" />
+                                                <m:Title text="Patients Bookings" />
                                                 <m:ToolbarSpacer />
-                                                <m:SearchField width="30%" />
-                                                <m:Button
-                                                    text="sort"
-                                                    icon="sap-icon://sort"
-                                                />
-                                                <m:Button
-                                                    text="add new product"
-                                                    icon="sap-icon://add"
-                                                />
+                                               
                                             </m:Toolbar>
                                         </m:headerToolbar>
                                         <m:columns>
                                             <m:Column>
-                                                <m:Text text="Product Name" />
+                                                <m:Text text="Patient Name" />
                                             </m:Column>
                                             <m:Column>
-                                                <m:Text text="Description" />
+                                                <m:Text text="date of Birth" />
                                             </m:Column>
                                             <m:Column>
-                                                <m:Text text="Stock" />
+                                                <m:Text text="Gender" />
                                             </m:Column>
                                             <m:Column>
-                                                <m:Text text="Product ID" />
+                                                <m:Text text="Email" />
                                             </m:Column>
                                         </m:columns>
                                         <m:items>
                                             <m:ColumnListItem>
                                                 <m:cells>
-                                                    <m:Text text="{name}" />
+                                                    <m:Text text="{firstName}" />
                                                     <m:Text
-                                                        text="{description}"
+                                                        text="{dateOfBirth}"
                                                     />
-                                                    <m:Text text="{stock}" />
-                                                    <m:Text text="{ID}" />
+                                                    <m:Text text="{gender}" />
+                                                    <m:Text text="{email}" />
                                                 </m:cells>
                                             </m:ColumnListItem>
                                         </m:items>
@@ -220,7 +212,7 @@
                         <blocks>
                             <m:Table
                                 id="Orderss"
-                                items="{/Orders}"
+                                items="{/Appointments}"
                             >
                                 <m:headerToolbar>
                                     <m:Toolbar>
@@ -241,41 +233,32 @@
                                     </m:Toolbar>
                                 </m:headerToolbar>
                                 <m:columns>
-                                <m:Column >
-                                <m:Text text="Order ID"/>
-                                </m:Column>
+                                   
+                                    
                                     <m:Column>
-                                        <m:Text text="Product Ordered" />
+                                        <m:Text text="Patient" />
                                     </m:Column>
-                                    <m:Column>
-                                        <m:Text text="Customer" />
+                                    <m:Column >
+                                    <m:Text text="Date Time" />
                                     </m:Column>
-                                    <m:Column>
-                                        <m:Text text="Ordered date" />
+                                    <m:Column >
+                                    <m:Text text="Status"/>
                                     </m:Column>
-                                    <m:Column>
-                                        <m:Text text="status" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="quantity orderd" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="action" />
+                                    <m:Column >
+                                    <m:Text text="Action"/>
                                     </m:Column>
                                 </m:columns>
                                 <m:items>
                                     <m:ColumnListItem>
                                         <m:cells>
-                                            <m:Text text="{ID}" />
-                                            <m:Text text="{product_ID}" />
-                                            <m:Text text="{customer}" />
+                                            <m:Text text="{patient}" />
+                                            <m:Text text="{dateTime}" />
                                             <m:Text text="{status}" />
-                                            <m:Text text="{orderDate}" />
-                                            <m:Text text="{quantity}" />
                                             <m:HBox>
                                                 <m:Button
                                                     icon="sap-icon://edit"
                                                 />
+                                                <m:Button icon="sap-icon://delete" />
                                             </m:HBox>
                                         </m:cells>
                                     </m:ColumnListItem>
