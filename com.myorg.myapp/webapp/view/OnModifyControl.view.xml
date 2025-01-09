@@ -53,7 +53,7 @@
         <Button
           text="Let's visit Near Hospital"
           icon="sap-icon://electrocardiogram"
-          press="onButtonPress" 
+          press="onHospitalsPress" 
           class="sapUiSmallPadding sapUiSmallMargin" />
       </f:content>
     </f:Card>

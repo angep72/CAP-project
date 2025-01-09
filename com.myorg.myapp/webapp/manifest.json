@@ -103,7 +103,12 @@
 					"pattern": "bookshop",
                     "name": "bookshop",
                     "target": "bookshop"
-				}
+				},
+				{
+                    "pattern": "HospitalsPage",
+                    "name": "HospitalsPage",
+                    "target": "HospitalsPage"
+                }
 			],
 			"targets": {
 				"main": {
@@ -125,6 +130,10 @@
 				"bookshop": {
                     "viewId": "bookshop",
                     "viewName": "Bookshop"
+                },
+				"HospitalsPage": {
+                    "viewId": "HospitalsPage",
+                    "viewName": "HospitalsPage"
                 }
 			}
 		}
