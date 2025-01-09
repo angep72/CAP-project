@@ -269,6 +269,14 @@ sap.ui.define([
            .catch((error) => {
              MessageBox.error("Error deleting order: " + error.message);
              });
+        },
+        onHospitalsPress:function () {
+         const oRouter= this.getOwnerComponent().getRouter();
+         oRouter.navTo("HospitalsPage");
+        },
+        onAdminsPress:function () {
+            const oRouter= this.getOwnerComponent().getRouter();
+            oRouter.navTo("adminPages");
         }
         
 

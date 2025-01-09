@@ -1,0 +1,349 @@
+<mvc:View
+    xmlns:table="sap.ui.table"
+    xmlns="sap.uxap"
+    xmlns:m="sap.m"
+    xmlns:F="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="com.myorg.myapp.controller.Main"
+>
+    <ObjectPageLayout
+        id="ObjectPageLayout-admin"
+        showTitleInHeaderContent="true"
+        alwaysShowContentHeader="false"
+        preserveHeaderStateOnScroll="false"
+        headerContentPinnable="true"
+        isChildPage="true"
+        upperCaseAnchorBar="false"
+    >
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+                <expandedHeading>
+                    <m:FlexBox
+                        wrap="Wrap"
+                        fitContainer="true"
+                        alignItems="Center"
+                    >
+                        <m:Title
+                            text="AfriFam"
+                            wrapping="true"
+                            class="sapUiTinyMarginEnd"
+                        />
+                    </m:FlexBox>
+                </expandedHeading>
+
+                <snappedHeading>
+                    <m:FlexBox
+                        wrap="Wrap"
+                        fitContainer="true"
+                        alignItems="Center"
+                    >
+                        <m:FlexBox
+                            wrap="NoWrap"
+                            fitContainer="true"
+                            alignItems="Center"
+                            class="sapUiTinyMarginEnd"
+                        >
+                            <m:Title
+                                text="Your appointment Matters !!!"
+                                wrapping="true"
+                                class="sapUiTinyMarginEnd"
+                            />
+                        </m:FlexBox>
+                        <m:FlexBox
+                            wrap="NoWrap"
+                            fitContainer="true"
+                            alignItems="Center"
+                            class="sapUiTinyMarginEnd"
+                        >
+                           
+                            <m:Button
+                                icon="sap-icon://private"
+                                type="Transparent"
+                            />
+                            <m:Button
+                                icon="sap-icon://arrow-down"
+                                type="Transparent"
+                            />
+                        </m:FlexBox>
+                    </m:FlexBox>
+                </snappedHeading>
+
+                <expandedContent>
+                    <m:Text text="Welcome to the system" />
+                </expandedContent>
+
+                <snappedContent>
+                    <m:Text text="Please let us know your appointment" />
+                </snappedContent>
+
+                <!-- <actions>
+                    <m:ToggleButton
+                        text="Edit"
+                        type="Emphasized"
+                        press="onEditToggleButtonPress"
+                    />
+                    <m:OverflowToolbarButton
+                        type="Transparent"
+                        icon="sap-icon://copy"
+                    />
+                    <m:OverflowToolbarButton
+                        type="Transparent"
+                        icon="sap-icon://delete"
+                    />
+                    <m:OverflowToolbarButton
+                        type="Transparent"
+                        icon="sap-icon://add"
+                    />
+                    <m:OverflowToolbarButton
+                        type="Transparent"
+                        icon="sap-icon://paste"
+                    />
+                </actions> -->
+
+                <navigationActions>
+                    <m:OverflowToolbarButton
+                        type="Transparent"
+                        icon="sap-icon://full-screen"
+                        tooltip="Enter Full Screen Mode"
+                    />
+                    <m:OverflowToolbarButton
+                        type="Transparent"
+                        icon="sap-icon://decline"
+                        tooltip="Close column"
+                    />
+                </navigationActions>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+        <headerContent>
+            <m:FlexBox
+                wrap="Wrap"
+                fitContainer="true"
+                alignContent="Stretch"
+            >
+                <m:Avatar
+                    src="sap-icon://accidental-leave"
+                    displaySize="L"
+                    displayShape="Square"
+                    class="sapUiTinyMarginEnd"
+                />
+                <m:VBox
+                    justifyContent="Center"
+                    class="sapUiSmallMarginEnd"
+                >
+                </m:VBox>
+                <m:VBox
+                    justifyContent="Center"
+                    class="sapUiSmallMarginEnd"
+                >
+                </m:VBox>
+                <m:VBox
+                    justifyContent="Center"
+                    class="sapUiSmallMarginEnd"
+                >
+                    <m:Label text="AfriFam Hospital" />
+                </m:VBox>
+            </m:FlexBox>
+        </headerContent>
+        <sections>
+            <ObjectPageSection title="General Information">
+                <subSections>
+                    <ObjectPageSubSection>
+                        <blocks>
+                            <form:SimpleForm
+                                maxContainerCols="2"
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                                labelSpanL="12"
+                                labelSpanM="12"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                columnsL="1"
+                                columnsM="1"
+                            >
+                                <form:content>
+                                    <m:Table
+                                        id="idTablessy"
+                                        items="{/Products}"
+                                    >
+                                        <m:headerToolbar>
+                                            <m:Toolbar>
+                                                <m:Title text="Books" />
+                                                <m:ToolbarSpacer />
+                                                <m:SearchField width="30%" />
+                                                <m:Button
+                                                    text="sort"
+                                                    icon="sap-icon://sort"
+                                                />
+                                                <m:Button
+                                                    text="add new product"
+                                                    icon="sap-icon://add"
+                                                />
+                                            </m:Toolbar>
+                                        </m:headerToolbar>
+                                        <m:columns>
+                                            <m:Column>
+                                                <m:Text text="Product Name" />
+                                            </m:Column>
+                                            <m:Column>
+                                                <m:Text text="Description" />
+                                            </m:Column>
+                                            <m:Column>
+                                                <m:Text text="Stock" />
+                                            </m:Column>
+                                            <m:Column>
+                                                <m:Text text="Product ID" />
+                                            </m:Column>
+                                        </m:columns>
+                                        <m:items>
+                                            <m:ColumnListItem>
+                                                <m:cells>
+                                                    <m:Text text="{name}" />
+                                                    <m:Text
+                                                        text="{description}"
+                                                    />
+                                                    <m:Text text="{stock}" />
+                                                    <m:Text text="{ID}" />
+                                                </m:cells>
+                                            </m:ColumnListItem>
+                                        </m:items>
+                                    </m:Table>
+                                </form:content>
+                            </form:SimpleForm>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+            <ObjectPageSection title="Appointment ">
+                <subSections>
+                    <ObjectPageSubSection>
+                        <blocks>
+                            <m:Table
+                                id="Orderssy"
+                                items="{/Orders}"
+                            >
+                                <m:headerToolbar>
+                                    <m:Toolbar>
+                                        <m:Title text="Orders" />
+                                        <m:ToolbarSpacer />
+                                        <m:SearchField width="30%" />
+                                        <m:Button
+                                            text="delete"
+                                            icon="sap-icon://delete"
+                                            press="onOpenDelete"
+                                        />
+
+                                        <m:Button
+                                            text="add new Order"
+                                            icon="sap-icon://shipping-status"
+                                            press="onOrderButton"
+                                        />
+                                    </m:Toolbar>
+                                </m:headerToolbar>
+                                <m:columns>
+                                <m:Column >
+                                <m:Text text="Order ID"/>
+                                </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Product Ordered" />
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Customer" />
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="Ordered date" />
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="status" />
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="quantity orderd" />
+                                    </m:Column>
+                                    <m:Column>
+                                        <m:Text text="action" />
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem>
+                                        <m:cells>
+                                            <m:Text text="{ID}" />
+                                            <m:Text text="{product_ID}" />
+                                            <m:Text text="{customer}" />
+                                            <m:Text text="{status}" />
+                                            <m:Text text="{orderDate}" />
+                                            <m:Text text="{quantity}" />
+                                            <m:HBox>
+                                                <m:Button
+                                                    icon="sap-icon://edit"
+                                                />
+                                            </m:HBox>
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+
+        <footer>
+            <m:OverflowToolbar>
+                <m:ToolbarSpacer />
+                <m:Button
+                    type="Accept"
+                    text="Save"
+                />
+                <m:Button
+                    type="Reject"
+                    text="Cancel"
+                />
+            </m:OverflowToolbar>
+        </footer>
+    </ObjectPageLayout>
+    <m:Dialog
+        id="Place-ordersy"
+        title="Placing Order in my CAP"
+        class="sapUiContentPadding"
+    >
+        <m:VBox>
+            <m:Label text="Product ID" />
+            <m:Input id="new-productsy" />
+            <m:Label text="Quantity" />
+            <m:Input id="quantitysy" />
+            <m:Label text="Customer Id" />
+            <m:Input id="customer-idsy" />
+
+            <m:HBox>
+                <m:Button
+                    text="Submit Order"
+                    press="onSubmitOrder"
+                />
+                <m:Button
+                    text="cancel Order"
+                    press="onCancelOrder"
+                />
+            </m:HBox>
+        </m:VBox>
+    </m:Dialog>
+    <m:Dialog
+        id="DeletingOrdersy"
+        title="Deleting Order"
+        class="sapUiContentPadding"
+    >
+        <m:VBox>
+            <m:Label text="Enter the Order_Id you want to cancel" />
+            <m:Input id="order-productsy" />
+        </m:VBox>
+        <m:HBox>
+            <m:Button
+                text="Submit Order"
+                press="onSubmitOrdering"
+            />
+            <m:Button
+                text="cancel Order"
+                press="onCancelOrdering"
+            />
+        </m:HBox>
+    </m:Dialog>
+</mvc:View>
