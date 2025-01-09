@@ -162,59 +162,16 @@
                                 columnsM="1"
                             >
                                 <form:content>
-                                    <m:Table
-                                        id="idTabless"
-                                        items="{/Products}"
-                                    >
-                                        <m:headerToolbar>
-                                            <m:Toolbar>
-                                                <m:Title text="Books" />
-                                                <m:ToolbarSpacer />
-                                                <m:SearchField width="30%" />
-                                                <m:Button
-                                                    text="sort"
-                                                    icon="sap-icon://sort"
-                                                />
-                                                <m:Button
-                                                    text="add new product"
-                                                    icon="sap-icon://add"
-                                                />
-                                            </m:Toolbar>
-                                        </m:headerToolbar>
-                                        <m:columns>
-                                            <m:Column>
-                                                <m:Text text="Product Name" />
-                                            </m:Column>
-                                            <m:Column>
-                                                <m:Text text="Description" />
-                                            </m:Column>
-                                            <m:Column>
-                                                <m:Text text="Stock" />
-                                            </m:Column>
-                                            <m:Column>
-                                                <m:Text text="Product ID" />
-                                            </m:Column>
-                                        </m:columns>
-                                        <m:items>
-                                            <m:ColumnListItem>
-                                                <m:cells>
-                                                    <m:Text text="{name}" />
-                                                    <m:Text
-                                                        text="{description}"
-                                                    />
-                                                    <m:Text text="{stock}" />
-                                                    <m:Text text="{ID}" />
-                                                </m:cells>
-                                            </m:ColumnListItem>
-                                        </m:items>
-                                    </m:Table>
+                                 <m:Button text="Register as Patient"/>
+                                 <m:Button text="Register as Hospital"/>
+                                    
                                 </form:content>
                             </form:SimpleForm>
                         </blocks>
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>
-            <ObjectPageSection title="Orders ">
+            <ObjectPageSection title="Appointment ">
                 <subSections>
                     <ObjectPageSubSection>
                         <blocks>
