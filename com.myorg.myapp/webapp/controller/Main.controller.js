@@ -273,6 +273,10 @@ sap.ui.define([
         onHospitalsPress:function () {
          const oRouter= this.getOwnerComponent().getRouter();
          oRouter.navTo("HospitalsPage");
+        },
+        onAdminsPress:function () {
+            const oRouter= this.getOwnerComponent().getRouter();
+            oRouter.navTo("adminPages");
         }
         
 

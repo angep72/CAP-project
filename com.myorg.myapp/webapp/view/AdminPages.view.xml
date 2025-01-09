@@ -8,7 +8,7 @@
     controllerName="com.myorg.myapp.controller.Main"
 >
     <ObjectPageLayout
-        id="ObjectPageLayouts"
+        id="ObjectPageLayout-admin"
         showTitleInHeaderContent="true"
         alwaysShowContentHeader="false"
         preserveHeaderStateOnScroll="false"
@@ -163,7 +163,7 @@
                             >
                                 <form:content>
                                     <m:Table
-                                        id="idTabless"
+                                        id="idTablessy"
                                         items="{/Products}"
                                     >
                                         <m:headerToolbar>
@@ -219,7 +219,7 @@
                     <ObjectPageSubSection>
                         <blocks>
                             <m:Table
-                                id="Orderss"
+                                id="Orderssy"
                                 items="{/Orders}"
                             >
                                 <m:headerToolbar>
@@ -302,17 +302,17 @@
         </footer>
     </ObjectPageLayout>
     <m:Dialog
-        id="Place-orders"
+        id="Place-ordersy"
         title="Placing Order in my CAP"
         class="sapUiContentPadding"
     >
         <m:VBox>
             <m:Label text="Product ID" />
-            <m:Input id="new-products" />
+            <m:Input id="new-productsy" />
             <m:Label text="Quantity" />
-            <m:Input id="quantitys" />
+            <m:Input id="quantitysy" />
             <m:Label text="Customer Id" />
-            <m:Input id="customer-ids" />
+            <m:Input id="customer-idsy" />
 
             <m:HBox>
                 <m:Button
@@ -327,13 +327,13 @@
         </m:VBox>
     </m:Dialog>
     <m:Dialog
-        id="DeletingOrders"
+        id="DeletingOrdersy"
         title="Deleting Order"
         class="sapUiContentPadding"
     >
         <m:VBox>
             <m:Label text="Enter the Order_Id you want to cancel" />
-            <m:Input id="order-products" />
+            <m:Input id="order-productsy" />
         </m:VBox>
         <m:HBox>
             <m:Button

@@ -46,7 +46,7 @@
       <f:header>
         <card:Header
           title="Welcome to Hospital Management"
-          subtitle="Overview of the hospital Management"
+          subtitle="Please Login Here as Patient!!!"
           iconSrc="sap-icon://electronic-medical-record"/>
       </f:header>
       <f:content>
@@ -64,15 +64,15 @@
       class="sapUiMediumMarginBottom sapUiShadowDetail">
       <f:header>
         <card:Header
-          title="Browse Books"
-          subtitle="Overview of the books"
+          title="Welcome to Hospital Management"
+          subtitle="Log in as Hospitals"
           iconSrc="sap-icon://education"/>
       </f:header>
       <f:content>
         <Button
           text="Let's go to shop!!"
           icon="sap-icon://study-leave"
-          press="onButtonPress" 
+          press="onAdminsPress" 
           class="sapUiSmallPadding sapUiSmallMargin" />
       </f:content>
     </f:Card>

@@ -108,6 +108,11 @@
                     "pattern": "HospitalsPage",
                     "name": "HospitalsPage",
                     "target": "HospitalsPage"
+                },
+				{
+                    "pattern": "adminPages",
+                    "name": "adminPages",
+                    "target": "adminPages"
                 }
 			],
 			"targets": {
@@ -134,6 +139,10 @@
 				"HospitalsPage": {
                     "viewId": "HospitalsPage",
                     "viewName": "HospitalsPage"
+                },
+				"adminPages": {
+                    "viewId": "adminPages",
+                    "viewName": "AdminPages"
                 }
 			}
 		}
