@@ -18,8 +18,8 @@
     </items>
   </IconTabBar>
 
-  <!-- Cards for each tab -->
-  <HBox class="sapUiSmallMargin">
+  <!-- Horizontal Box to layout the cards side by side -->
+  <HBox justifyContent="SpaceAround" alignItems="Center" class="sapUiLargeMargin">
     <!-- Team Distribution Card -->
     <f:Card
       id="teamDistributionCard"
@@ -27,15 +27,15 @@
       <f:header>
         <card:Header
           title="Browse Books"
-          subtitle="Overviwe of the books"
+          subtitle="Overview of the books"
           iconSrc="sap-icon://education"/>
       </f:header>
       <f:content>
-      <Button
-      text="Let's go to shoop!!"
-      icon="sap-icon://study-leave"
-      press="onButtonPress" 
-      class="sapUiSmallPadding sapUiSmallMargin" />
+        <Button
+          text="Let's go to shop!!"
+          icon="sap-icon://study-leave"
+          press="onButtonPress" 
+          class="sapUiSmallPadding sapUiSmallMargin" />
       </f:content>
     </f:Card>
 
@@ -45,45 +45,38 @@
       class="sapUiMediumMarginBottom sapUiShadowDetail">
       <f:header>
         <card:Header
-          title="Drone Maintenance"
-          subtitle="Latest maintenance updates"
-          statusText="24,Anage"
-          iconSrc="sap-icon://wrench"/>
+          title="Browse Books"
+          subtitle="Overview of the books"
+          iconSrc="sap-icon://education"/>
       </f:header>
       <f:content>
-        <VBox class="sapUiSmallMargin">
-          <List>
-            <ObjectListItem
-              title="Drone DX-123"
-              type="Active"
-              number="98%"
-              numberUnit="Health"
-              intro="Last Check: Today"
-              icon="sap-icon://flight">
-              <firstStatus>
-                <ObjectStatus
-                  text="Operational"
-                  state="Success"/>
-              </firstStatus>
-            </ObjectListItem>
-            <ObjectListItem
-              title="Drone DX-456"
-              type="Active"
-              number="85%"
-              numberUnit="Health"
-              intro="Last Check: Yesterday"
-              icon="sap-icon://flight">
-              <firstStatus>
-                <ObjectStatus
-                  text="Maintenance Due"
-                  state="Warning"/>
-              </firstStatus>
-            </ObjectListItem>
-          </List>
-        </VBox>
+        <Button
+          text="Let's go to shop!!"
+          icon="sap-icon://study-leave"
+          press="onButtonPress" 
+          class="sapUiSmallPadding sapUiSmallMargin" />
       </f:content>
     </f:Card>
+
+    <!-- Drone Development Card -->
+    <f:Card
+      id="droneDevelopmentCard"
+      class="sapUiMediumMarginBottom sapUiShadowDetail">
+      <f:header>
+        <card:Header
+          title="Browse Books"
+          subtitle="Overview of the books"
+          iconSrc="sap-icon://education"/>
+      </f:header>
+      <f:content>
+        <Button
+          text="Let's go to shop!!"
+          icon="sap-icon://study-leave"
+          press="onButtonPress" 
+          class="sapUiSmallPadding sapUiSmallMargin" />
+      </f:content>
+    </f:Card>
+
   </HBox>
-  
 
 </mvc:View>
