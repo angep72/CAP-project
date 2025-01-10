@@ -337,7 +337,12 @@
             <m:Label text="Last Name"/>
             <m:Input id="lastnameId"/>
             <m:Label text="date of Birth" />
-            <m:Input id="dateofBirthId"/>
+             <m:DatePicker
+                    id="newProductReleaseDate"
+                    valueFormat="yyyy-MM-dd"
+                    displayFormat="yyyy-MM-dd"
+                    change="validateReleaseDate"
+                />
             <m:Label text="Email"/>
             <m:Input id="emaialId" />
             <m:Label text="Phone"/>
