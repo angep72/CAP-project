@@ -15,3 +15,19 @@
     margin-left: 15px; /* Adjusted margin on the left */
     padding-left: 10px; /* Adjusted padding on the left */
 }
+/* Add to your custom CSS file */
+.sapUiResponsiveMargin {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  
+  .sapUiSmallMarginTop {
+    margin-top: 20px;
+  }
+  
+  .sapUiLargeText {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
