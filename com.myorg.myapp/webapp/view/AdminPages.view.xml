@@ -177,6 +177,7 @@
                                                 <m:Button
                                                     text="Register a new Patient "
                                                     icon="sap-icon://add"
+                                                    press="OnRegisternewPatient"
                                                 />
                                             </m:Toolbar>
                                         </m:headerToolbar>
@@ -326,21 +327,31 @@
         </m:VBox>
     </m:Dialog>
     <m:Dialog
-        id="DeletingOrdersy"
-        title="Deleting Order"
+        id="newPatientdialog"
+        title="Registering new Patient"
         class="sapUiContentPadding"
     >
         <m:VBox>
-            <m:Label text="Enter the Order_Id you want to cancel" />
-            <m:Input id="order-productsy" />
+            <m:Label text="First Name" />
+            <m:Input id="firstnameId" />
+            <m:Label text="Last Name"/>
+            <m:Input id="lastnameId"/>
+            <m:Label text="date of Birth" />
+            <m:Input id="dateofBirthId"/>
+            <m:Label text="Email"/>
+            <m:Input id="emaialId" />
+            <m:Label text="Phone"/>
+            <m:Input id="phoneId"/>
+            <m:Label text="address"/>
+            <m:Input id="addressId"/>
         </m:VBox>
         <m:HBox>
             <m:Button
-                text="Submit Order"
+                text="Submit Patient"
                 press="onSubmitOrdering"
             />
             <m:Button
-                text="cancel Order"
+                text="cancel Patient"
                 press="onCancelOrdering"
             />
         </m:HBox>

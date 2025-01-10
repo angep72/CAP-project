@@ -277,6 +277,9 @@ sap.ui.define([
         onAdminsPress:function () {
             const oRouter= this.getOwnerComponent().getRouter();
             oRouter.navTo("adminPages");
+        },
+        OnRegisternewPatient:function () {
+            this.byId("newPatientdialog").open();
         }
         
 
