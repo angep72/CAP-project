@@ -170,13 +170,12 @@
                                             <m:Toolbar>
                                                 <m:Title text="Books" />
                                                 <m:ToolbarSpacer />
-                                                <m:SearchField width="30%" />
                                                 <m:Button
                                                     text="sort"
                                                     icon="sap-icon://sort"
                                                 />
                                                 <m:Button
-                                                    text="add new product"
+                                                    text="Register a new Patient "
                                                     icon="sap-icon://add"
                                                 />
                                             </m:Toolbar>
