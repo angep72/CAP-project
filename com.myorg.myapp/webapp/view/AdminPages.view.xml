@@ -164,46 +164,54 @@
                                 <form:content>
                                     <m:Table
                                         id="idTablessy"
-                                        items="{/Products}"
+                                        items="{/Patients}"
                                     >
                                         <m:headerToolbar>
                                             <m:Toolbar>
-                                                <m:Title text="Books" />
+                                                <m:Title text="Registered Patients" />
                                                 <m:ToolbarSpacer />
-                                                <m:SearchField width="30%" />
                                                 <m:Button
                                                     text="sort"
                                                     icon="sap-icon://sort"
                                                 />
                                                 <m:Button
-                                                    text="add new product"
+                                                    text="Register a new Patient "
                                                     icon="sap-icon://add"
+                                                    press="OnRegisternewPatient"
                                                 />
                                             </m:Toolbar>
                                         </m:headerToolbar>
                                         <m:columns>
                                             <m:Column>
-                                                <m:Text text="Product Name" />
+                                                <m:Text text="Patient name" />
                                             </m:Column>
                                             <m:Column>
-                                                <m:Text text="Description" />
+                                                <m:Text text="date of Birth" />
                                             </m:Column>
                                             <m:Column>
-                                                <m:Text text="Stock" />
+                                                <m:Text text="Gender" />
                                             </m:Column>
                                             <m:Column>
-                                                <m:Text text="Product ID" />
+                                                <m:Text text="email" />
+                                            </m:Column>
+                                            <m:Column >
+                                            <m:Text text="Phone"/>
+                                            </m:Column>
+                                            <m:Column >
+                                            <m:Text text="address"/>
                                             </m:Column>
                                         </m:columns>
                                         <m:items>
                                             <m:ColumnListItem>
                                                 <m:cells>
-                                                    <m:Text text="{name}" />
+                                                    <m:Text text="{firstName} {lastName}" />
                                                     <m:Text
-                                                        text="{description}"
+                                                        text="{dateOfBirth}"
                                                     />
-                                                    <m:Text text="{stock}" />
-                                                    <m:Text text="{ID}" />
+                                                    <m:Text text="{gender}" />
+                                                    <m:Text text="{email}" />
+                                                    <m:Text text="{phone}" />
+                                                    <m:Text text="{address}"/>
                                                 </m:cells>
                                             </m:ColumnListItem>
                                         </m:items>
@@ -327,22 +335,37 @@
         </m:VBox>
     </m:Dialog>
     <m:Dialog
-        id="DeletingOrdersy"
-        title="Deleting Order"
+        id="newPatientdialog"
+        title="Registering new Patient"
         class="sapUiContentPadding"
     >
         <m:VBox>
-            <m:Label text="Enter the Order_Id you want to cancel" />
-            <m:Input id="order-productsy" />
+            <m:Label text="First Name" />
+            <m:Input id="firstnameId" />
+            <m:Label text="Last Name"/>
+            <m:Input id="lastnameId"/>
+            <m:Label text="date of Birth" />
+             <m:DatePicker
+                    id="newProductReleaseDate"
+                    valueFormat="yyyy-MM-dd"
+                    displayFormat="yyyy-MM-dd"
+                    change="validateReleaseDate"
+                />
+            <m:Label text="Email"/>
+            <m:Input id="emaialId" />
+            <m:Label text="Phone"/>
+            <m:Input id="phoneId"/>
+            <m:Label text="address"/>
+            <m:Input id="addressId"/>
         </m:VBox>
         <m:HBox>
             <m:Button
-                text="Submit Order"
-                press="onSubmitOrdering"
+                text="Submit Patient"
+                press="onSubmitPatient"
             />
             <m:Button
-                text="cancel Order"
-                press="onCancelOrdering"
+                text="cancel Patient"
+                press="onCancelPatient"
             />
         </m:HBox>
     </m:Dialog>
