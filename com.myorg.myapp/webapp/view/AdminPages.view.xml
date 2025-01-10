@@ -348,11 +348,11 @@
         <m:HBox>
             <m:Button
                 text="Submit Patient"
-                press="onSubmitOrdering"
+                press="onSubmitPatient"
             />
             <m:Button
                 text="cancel Patient"
-                press="onCancelOrdering"
+                press="onCancelPatient"
             />
         </m:HBox>
     </m:Dialog>
