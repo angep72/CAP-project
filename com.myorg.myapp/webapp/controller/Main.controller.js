@@ -280,6 +280,9 @@ sap.ui.define([
         },
         OnRegisternewPatient:function () {
             this.byId("newPatientdialog").open();
+        },
+        onCancelPatient:function () {
+    this.byId("newPatientdialog").close();
         }
         
 
