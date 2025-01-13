@@ -399,6 +399,7 @@ sap.ui.define([
             onAccept:function(oEvent){
                // Get the source of the event
                const source = oEvent.getSource();
+
                console.log("Event Source:", source);
            
                // Traverse up the parent hierarchy to find the element with the binding context
@@ -414,6 +415,13 @@ sap.ui.define([
                    console.error("No binding context found for the selected item.");
                    return;
                }
+               const statuses = context.getObject().status
+
+               if(statuses === "REJECTED"){
+                source.setEnabled(false);
+                MessageBox.error(`The appointment is already ${statuses}`);
+                return
+             }
            
                // Get the patient ID from the context
                const appointmentId = context.getObject().appointmentId;
@@ -422,9 +430,6 @@ sap.ui.define([
                    return;
                }
            
-            //    console.log("Appointment ID: " + appointmentId);
-
-
 
                 const status = "ACCEPTED";
                 fetch("http://localhost:4000/odata/updateAppointmentStatus",{
@@ -445,15 +450,84 @@ sap.ui.define([
                             );
                         });
                     }
-                    MessageBox.success("Appointment declined!");
+                    MessageBox.success("Appointment Acceptted!");
+                    source.setEnabled(false);
+
                     this.onCancelBooking();
-                    this.getView().getModel().refresh();
+                  this.getView().getModel().refresh();
                 })
                 .catch((error) => {
                     MessageBox.error("Error declining appointment: " + error.message);
                 });
+            },
+            onDecline: function(oEvent) {
+                // Get the source of the event
+                const source = oEvent.getSource();
+                console.log("Event Source:", source);
+            
+                // Traverse up the parent hierarchy to find the element with the binding context
+                let context = null;
+                let currentElement = source;
+            
+                while (currentElement && !context) {
+                    context = currentElement.getBindingContext();
+                    currentElement = currentElement.getParent();
+                }
+            
+                if (!context) {
+                    console.error("No binding context found for the selected item.");
+                    return;
+                }
+            
+                const statuses = context.getObject().status;
+                if (statuses === "ACCEPTED") {
+                    source.setEnabled(false);
+                    MessageBox.error(`The appointment is already ${statuses}`);
+                    return;
+                }
+            
+                const appointmentId = context.getObject().appointmentId;
+                if (!appointmentId) {
+                    console.error("No patientId found in the binding context.");
+                    return;
+                }
+            
+                // Add confirmation dialog before declining
+                MessageBox.confirm("Are you sure you want to decline this appointment?", {
+                    title: "Decline Confirmation",
+                    onClose: (oAction) => {
+                        if (oAction === MessageBox.Action.OK) {
+                            const status = "REJECTED";
+                            fetch("http://localhost:4000/odata/updateAppointmentStatus", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                    appointmentId: appointmentId,
+                                    status: status
+                                })
+                            })
+                            .then((response) => {
+                                if (!response.ok) {
+                                    return response.text().then((errorText) => {
+                                        throw new Error(
+                                            `HTTP error! Status: ${response.status} - ${errorText}`
+                                        );
+                                    });
+                                }
+                                MessageBox.success("Appointment declined!");
+                                source.setEnabled(false);
+                                this.onCancelBooking();
+                                this.getView().getModel().refresh();
+                            })
+                            .catch((error) => {
+                                MessageBox.error("Error declining appointment: " + error.message);
+                            });
+                        }
+                    }
+                });
             }
-
             
     
               
