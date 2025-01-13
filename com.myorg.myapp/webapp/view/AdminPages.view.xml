@@ -238,7 +238,7 @@
                             <m:Table id="Orderssy" items="{/Appointments}">
                                 <m:headerToolbar>
                                     <m:Toolbar>
-                                        <m:Title text="Patients appointments" />
+                                        <m:Title text="Patients appointments who Missed the doctors" />
                                         <m:ToolbarSpacer />
                                         <m:SearchField width="30%" />
                                         <m:Button

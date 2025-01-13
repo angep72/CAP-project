@@ -365,8 +365,35 @@ sap.ui.define([
             onDelete:function(){
                 const productId = this._productIdToDelete
                 const order_date = this.byId("dateBooked").getValue();
-                console.log("Product ID to delete:", productId, order_date);
-                
+                const reason = this.byId("reason").getValue();
+                console.log("Product ID to delete:", productId, order_date, reason);
+                fetch("http://localhost:4000/odata/bookAppointment", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({  // Convert the object to a JSON string
+                        patientId: productId,
+                        dateTime: order_date,
+                        reason: reason
+                    })
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        return response.text().then((errorText) => {
+                            throw new Error(
+                                `HTTP error! Status: ${response.status} - ${errorText}`
+                            );
+                        });
+                    }
+                    MessageBox.success("Appointment  successfully requested!");
+                    this.onCancelBooking();
+                    this.getView().getModel().refresh();
+                })
+                .catch((error) => {
+                    MessageBox.error("Error cancelling appointment: " + error.message);
+                });
+
             }
 
             
