@@ -238,7 +238,7 @@
                             <m:Table id="Orderssy">
                                 <m:headerToolbar>
                                     <m:Toolbar>
-                                        <m:Title text="Orders" />
+                                        <m:Title text="Patients appointments" />
                                         <m:ToolbarSpacer />
                                         <m:SearchField width="30%" />
                                         <m:Button
@@ -256,25 +256,13 @@
                                 </m:headerToolbar>
                                 <m:columns>
                                     <m:Column>
-                                        <m:Text text="Order ID" />
+                                        <m:Text text="dateTime" />
                                     </m:Column>
                                     <m:Column>
-                                        <m:Text text="Product Ordered" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="Customer" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="Ordered date" />
+                                        <m:Text text="reason" />
                                     </m:Column>
                                     <m:Column>
                                         <m:Text text="status" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="quantity orderd" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="action" />
                                     </m:Column>
                                 </m:columns>
                                 <m:items>
