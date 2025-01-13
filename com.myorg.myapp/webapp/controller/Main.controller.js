@@ -394,6 +394,33 @@ sap.ui.define([
                     MessageBox.error("Error cancelling appointment: " + error.message);
                 });
 
+            },
+            onDecline:function(){
+                const status = "ACCEPTED";
+                fetch("",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({  // Convert the object to a JSON string
+                        status: status
+                    })
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        return response.text().then((errorText) => {
+                            throw new Error(
+                                `HTTP error! Status: ${response.status} - ${errorText}`
+                            );
+                        });
+                    }
+                    MessageBox.success("Appointment declined!");
+                    this.onCancelBooking();
+                    this.getView().getModel().refresh();
+                })
+                .catch((error) => {
+                    MessageBox.error("Error declining appointment: " + error.message);
+                });
             }
 
             

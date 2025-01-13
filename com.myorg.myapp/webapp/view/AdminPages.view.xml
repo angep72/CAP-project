@@ -308,7 +308,7 @@
     <m:Dialog
         id="BookAppointmentDialog"
         title="Placing Order in my CAP"
-        class="sapUiContentPadding"
+        class="sapUiContentPadding sapUiSmallMargin"
     >
         <m:VBox>
             <m:Label text="Date you wish to come back" />
@@ -322,7 +322,7 @@
             <m:Input id="reason"/>
             
 
-            <m:HBox>
+            <m:HBox class=" sapUiSmallMargin" justifyContent="SpaceBetween">
                 <m:Button
                     text="Send Book"
                     press="onDelete"
@@ -383,7 +383,7 @@
             <m:Label text="address" />
             <m:Input id="addressId" />
         </m:VBox>
-        <m:HBox>
+        <m:HBox justifyContent="SpaceBetween">
             <m:Button
                 text="Submit Patient"
                 press="onSendBook"
