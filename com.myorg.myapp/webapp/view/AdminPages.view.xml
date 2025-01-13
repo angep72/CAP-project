@@ -1,4 +1,5 @@
 <mvc:View
+    xmlns:core="sap.ui.core"
     xmlns:table="sap.ui.table"
     xmlns="sap.uxap"
     xmlns:m="sap.m"
@@ -56,7 +57,6 @@
                             alignItems="Center"
                             class="sapUiTinyMarginEnd"
                         >
-                           
                             <m:Button
                                 icon="sap-icon://private"
                                 type="Transparent"
@@ -130,13 +130,11 @@
                 <m:VBox
                     justifyContent="Center"
                     class="sapUiSmallMarginEnd"
-                >
-                </m:VBox>
+                />
                 <m:VBox
                     justifyContent="Center"
                     class="sapUiSmallMarginEnd"
-                >
-                </m:VBox>
+                />
                 <m:VBox
                     justifyContent="Center"
                     class="sapUiSmallMarginEnd"
@@ -168,7 +166,9 @@
                                     >
                                         <m:headerToolbar>
                                             <m:Toolbar>
-                                                <m:Title text="Registered Patients" />
+                                                <m:Title
+                                                    text="Registered Patients"
+                                                />
                                                 <m:ToolbarSpacer />
                                                 <m:Button
                                                     text="sort"
@@ -194,24 +194,33 @@
                                             <m:Column>
                                                 <m:Text text="email" />
                                             </m:Column>
-                                            <m:Column >
-                                            <m:Text text="Phone"/>
+                                            <m:Column>
+                                                <m:Text text="Phone" />
                                             </m:Column>
-                                            <m:Column >
-                                            <m:Text text="address"/>
+                                            <m:Column>
+                                                <m:Text text="address" />
+                                            </m:Column>
+                                            <m:Column>
+                                                <m:Text text="Appoint lather" />
                                             </m:Column>
                                         </m:columns>
                                         <m:items>
                                             <m:ColumnListItem>
                                                 <m:cells>
-                                                    <m:Text text="{firstName} {lastName}" />
+                                                    <m:Text
+                                                        text="{firstName} {lastName}"
+                                                    />
                                                     <m:Text
                                                         text="{dateOfBirth}"
                                                     />
                                                     <m:Text text="{gender}" />
                                                     <m:Text text="{email}" />
                                                     <m:Text text="{phone}" />
-                                                    <m:Text text="{address}"/>
+                                                    <m:Text text="{address}" />
+                                                    <m:Button
+                                                        icon="sap-icon://calendar"
+                                                        press="onBookAppoint"
+                                                    />
                                                 </m:cells>
                                             </m:ColumnListItem>
                                         </m:items>
@@ -226,13 +235,10 @@
                 <subSections>
                     <ObjectPageSubSection>
                         <blocks>
-                            <m:Table
-                                id="Orderssy"
-                                items="{/Orders}"
-                            >
+                            <m:Table id="Orderssy" items="{/Appointments}">
                                 <m:headerToolbar>
                                     <m:Toolbar>
-                                        <m:Title text="Orders" />
+                                        <m:Title text="Patients appointments who Missed the doctors" />
                                         <m:ToolbarSpacer />
                                         <m:SearchField width="30%" />
                                         <m:Button
@@ -249,40 +255,31 @@
                                     </m:Toolbar>
                                 </m:headerToolbar>
                                 <m:columns>
-                                <m:Column >
-                                <m:Text text="Order ID"/>
-                                </m:Column>
                                     <m:Column>
-                                        <m:Text text="Product Ordered" />
+                                        <m:Text text="dateTime" />
                                     </m:Column>
                                     <m:Column>
-                                        <m:Text text="Customer" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="Ordered date" />
+                                        <m:Text text="reason" />
                                     </m:Column>
                                     <m:Column>
                                         <m:Text text="status" />
                                     </m:Column>
-                                    <m:Column>
-                                        <m:Text text="quantity orderd" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="action" />
-                                    </m:Column>
+                                    <m:Column><m:Text text="actions"></m:Text></m:Column>
                                 </m:columns>
                                 <m:items>
                                     <m:ColumnListItem>
                                         <m:cells>
-                                            <m:Text text="{ID}" />
-                                            <m:Text text="{product_ID}" />
-                                            <m:Text text="{customer}" />
+                                            <m:Text text="{dateTime}" />
+                                            <m:Text text="{reason}" />
                                             <m:Text text="{status}" />
-                                            <m:Text text="{orderDate}" />
-                                            <m:Text text="{quantity}" />
                                             <m:HBox>
                                                 <m:Button
-                                                    icon="sap-icon://edit"
+                                                    icon="sap-icon://accept"
+                                                    press="onAccept"
+                                                />
+                                                <m:Button 
+                                                icon="sap-icon://decline"
+                                                press="onDecline"
                                                 />
                                             </m:HBox>
                                         </m:cells>
@@ -310,26 +307,30 @@
         </footer>
     </ObjectPageLayout>
     <m:Dialog
-        id="Place-ordersy"
+        id="BookAppointmentDialog"
         title="Placing Order in my CAP"
-        class="sapUiContentPadding"
+        class="sapUiContentPadding sapUiSmallMargin"
     >
         <m:VBox>
-            <m:Label text="Product ID" />
-            <m:Input id="new-productsy" />
-            <m:Label text="Quantity" />
-            <m:Input id="quantitysy" />
-            <m:Label text="Customer Id" />
-            <m:Input id="customer-idsy" />
+            <m:Label text="Date you wish to come back" />
+            <m:DatePicker
+                id="dateBooked"
+                valueFormat="yyyy-MM-dd"
+                displayFormat="yyyy-MM-dd"
+                change="validateReleaseDate"
+            />
+            <m:Label text="Reason"/>
+            <m:Input id="reason"/>
+            
 
-            <m:HBox>
+            <m:HBox class=" sapUiSmallMargin" justifyContent="SpaceBetween">
                 <m:Button
-                    text="Submit Order"
-                    press="onSubmitOrder"
+                    text="Send Book"
+                    press="onDelete"
                 />
                 <m:Button
-                    text="cancel Order"
-                    press="onCancelOrder"
+                    text="cancel Booking"
+                    press="onCancelBooking"
                 />
             </m:HBox>
         </m:VBox>
@@ -342,26 +343,51 @@
         <m:VBox>
             <m:Label text="First Name" />
             <m:Input id="firstnameId" />
-            <m:Label text="Last Name"/>
-            <m:Input id="lastnameId"/>
+            <m:Label text="Last Name" />
+            <m:Input id="lastnameId" />
             <m:Label text="date of Birth" />
-             <m:DatePicker
-                    id="newProductReleaseDate"
-                    valueFormat="yyyy-MM-dd"
-                    displayFormat="yyyy-MM-dd"
-                    change="validateReleaseDate"
-                />
-            <m:Label text="Email"/>
+            <m:DatePicker
+                id="birthdateId"
+                valueFormat="yyyy-MM-dd"
+                displayFormat="yyyy-MM-dd"
+                change="validateReleaseDate"
+            />
+
+            <m:Label
+                text="Select Gender"
+                labelFor="genderSelect"
+                required="true"
+            />
+
+            <m:Select
+                id="genderSelect"
+                forceSelection="true"
+                width="100%"
+                change=".onGenderChange"
+            >
+                <m:items>
+                    <core:Item
+                        key="male"
+                        text="Male"
+                    />
+                    <core:Item
+                        key="female"
+                        text="Female"
+                    />
+                </m:items>
+            </m:Select>
+
+            <m:Label text="Email" />
             <m:Input id="emaialId" />
-            <m:Label text="Phone"/>
-            <m:Input id="phoneId"/>
-            <m:Label text="address"/>
-            <m:Input id="addressId"/>
+            <m:Label text="Phone" />
+            <m:Input id="phoneId" />
+            <m:Label text="address" />
+            <m:Input id="addressId" />
         </m:VBox>
-        <m:HBox>
+        <m:HBox justifyContent="SpaceBetween">
             <m:Button
                 text="Submit Patient"
-                press="onSubmitPatient"
+                press="onSendBook"
             />
             <m:Button
                 text="cancel Patient"

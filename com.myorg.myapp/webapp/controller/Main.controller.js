@@ -16,6 +16,7 @@ sap.ui.define([
 
             this.getView().setModel(oModel);
         },
+   
         onButtonPress:function(){
            const oRouter = this.getOwnerComponent().getRouter();
            oRouter.navTo("bookshop")
@@ -283,9 +284,179 @@ sap.ui.define([
         },
         onCancelPatient:function () {
     this.byId("newPatientdialog").close();
-        }
-        
+        },
+        onSubmitPatient:function () {
+            const firstName = this.byId("firstnameId").getValue();
+            const lastName = this.byId("lastnameId").getValue();
+            const dateofBirth = this.byId("birthdateId").getValue();
+            const email = this.byId("emaialId").getValue();
+            const phone = this.byId("phoneId").getValue();
+            const gender = this.byId("genderSelect").getSelectedKey();
+            const address = this.byId("addressId").getValue();
+            fetch("http://localhost:4000/odata/registerPatient", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({  // Convert the object to a JSON string
+                    firstName: firstName,
+                    lastName: lastName,
+                    dateOfBirth: dateofBirth,
+                    email: email,
+                    phone: phone,
+                    gender: gender,
+                    address: address
+                })
+            })
+           .then((response) => {
+             if (!response.ok) {
+                    return response.text().then((errorText) => {
+                        throw new Error(
+                            `HTTP error! Status: ${response.status} - ${errorText}`
+                        );
+                    });
+                }
+                MessageBox.success("Patient registered successfully!");
+                this.onCancelPatient();
+                this.getView().getModel().refresh();
+            })
+           .catch((error) => {
+             MessageBox.error("Error in creating patient: " + error.message);
+             });
+            },
+            // onBookAppoint:function(){
+            //     this.byId("BookAppointmentDialog").open();
+            // },
+            onCancelBooking:function(){
+                this.byId("BookAppointmentDialog").close();
+            },
+            onBookAppoint: function (oEvent) {
+                // Get the source of the event
+                const source = oEvent.getSource();
+                console.log("Event Source:", source);
+            
+                // Traverse up the parent hierarchy to find the element with the binding context
+                let context = null;
+                let currentElement = source;
+            
+                while (currentElement && !context) {
+                    context = currentElement.getBindingContext();
+                    currentElement = currentElement.getParent();
+                }
+            
+                if (!context) {
+                    console.error("No binding context found for the selected item.");
+                    return;
+                }
+            
+                // Get the product ID from the context
+                const productId = context.getObject().patientId;
+                if (!productId) {
+                    console.error("No product ID found in the binding context.");
+                    return;
+                }
+            
+                // Store the product ID in the controller for later use
+                this._productIdToDelete = productId;
+                console.log("Product ID to delete:", this._productIdToDelete);
+                this.byId("BookAppointmentDialog").open();
+                
+            },
+            onDelete:function(){
+                
+                const productId = this._productIdToDelete
+                const order_date = this.byId("dateBooked").getValue();
+                const reason = this.byId("reason").getValue();
+                console.log("Product ID to delete:", productId, order_date, reason);
+                fetch("http://localhost:4000/odata/bookAppointment", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({  // Convert the object to a JSON string
+                        patientId: productId,
+                        dateTime: order_date,
+                        reason: reason
+                    })
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        return response.text().then((errorText) => {
+                            throw new Error(
+                                `HTTP error! Status: ${response.status} - ${errorText}`
+                            );
+                        });
+                    }
+                    MessageBox.success("Appointment  successfully requested!");
+                    this.onCancelBooking();
+                    this.getView().getModel().refresh();
+                })
+                .catch((error) => {
+                    MessageBox.error("Error cancelling appointment: " + error.message);
+                });
+
+            },
+            onAccept:function(oEvent){
+               // Get the source of the event
+               const source = oEvent.getSource();
+               console.log("Event Source:", source);
+           
+               // Traverse up the parent hierarchy to find the element with the binding context
+               let context = null;
+               let currentElement = source;
+           
+               while (currentElement && !context) {
+                   context = currentElement.getBindingContext();
+                   currentElement = currentElement.getParent();
+               }
+           
+               if (!context) {
+                   console.error("No binding context found for the selected item.");
+                   return;
+               }
+           
+               // Get the patient ID from the context
+               const appointmentId = context.getObject().appointmentId;
+               if (!appointmentId) {
+                   console.error("No product ID found in the binding context.");
+                   return;
+               }
+           
+            //    console.log("Appointment ID: " + appointmentId);
 
 
-    });
+
+                const status = "ACCEPTED";
+                fetch("http://localhost:4000/odata/updateAppointmentStatus",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({  // Convert the object to a JSON string
+                        appointmentId: appointmentId,
+                        status: status
+                    })
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        return response.text().then((errorText) => {
+                            throw new Error(
+                                `HTTP error! Status: ${response.status} - ${errorText}`
+                            );
+                        });
+                    }
+                    MessageBox.success("Appointment declined!");
+                    this.onCancelBooking();
+                    this.getView().getModel().refresh();
+                })
+                .catch((error) => {
+                    MessageBox.error("Error declining appointment: " + error.message);
+                });
+            }
+
+            
+    
+              
+              
+    })
 });
