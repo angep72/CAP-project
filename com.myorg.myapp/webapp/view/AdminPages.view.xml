@@ -171,10 +171,6 @@
                                                 />
                                                 <m:ToolbarSpacer />
                                                 <m:Button
-                                                    text="sort"
-                                                    icon="sap-icon://sort"
-                                                />
-                                                <m:Button
                                                     text="Register a new Patient "
                                                     icon="sap-icon://add"
                                                     press="OnRegisternewPatient"
@@ -245,18 +241,8 @@
                                             text="Patients appointments who Missed the doctors"
                                         />
                                         <m:ToolbarSpacer />
-                                        <m:SearchField width="30%" />
-                                        <m:Button
-                                            text="delete"
-                                            icon="sap-icon://delete"
-                                            press="onOpenDelete"
-                                        />
-
-                                        <m:Button
-                                            text="add new Order"
-                                            icon="sap-icon://shipping-status"
-                                            press="onOrderButton"
-                                        />
+                                        
+                                      
                                     </m:Toolbar>
                                 </m:headerToolbar>
                                 <m:columns>
