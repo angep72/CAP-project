@@ -328,6 +328,8 @@
                 displayFormat="yyyy-MM-dd"
                 change="validateReleaseDate"
             />
+            <m:Label text="Reason"/>
+            <m:Input id="reason"/>
             
 
             <m:HBox>
