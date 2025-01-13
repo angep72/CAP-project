@@ -397,8 +397,6 @@ sap.ui.define([
 
             },
             onAccept:function(oEvent){
-                
-          
                // Get the source of the event
                const source = oEvent.getSource();
 
@@ -425,13 +423,70 @@ sap.ui.define([
                    return;
                }
            
-            //    console.log("Appointment ID: " + appointmentId);
-
-                // const oButton = this.byId("accepting-appoint-button")
-                // oButton.setEnabled(false);
-                // console.log(oButton)
 
                 const status = "ACCEPTED";
+                fetch("http://localhost:4000/odata/updateAppointmentStatus",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({  // Convert the object to a JSON string
+                        appointmentId: appointmentId,
+                        status: status
+                    })
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        return response.text().then((errorText) => {
+                            throw new Error(
+                                `HTTP error! Status: ${response.status} - ${errorText}`
+                            );
+                        });
+                    }
+                    MessageBox.success("Appointment Acceptted!");
+                    source.setEnabled(false);
+
+                    this.onCancelBooking();
+                  this.getView().getModel().refresh();
+                })
+                .catch((error) => {
+                    MessageBox.error("Error declining appointment: " + error.message);
+                });
+            },
+            onDecline:function(oEvent){
+                 // Get the source of the event
+               const source = oEvent.getSource();
+
+               console.log("Event Source:", source);
+           
+               // Traverse up the parent hierarchy to find the element with the binding context
+               let context = null;
+               let currentElement = source;
+           
+               while (currentElement && !context) {
+                   context = currentElement.getBindingContext();
+                   currentElement = currentElement.getParent();
+               }
+           
+               if (!context) {
+                   console.error("No binding context found for the selected item.");
+                   return;
+               }
+                 const statuses = context.getObject().status
+                 if(statuses === "ACCEPTED"){
+                    source.setEnabled(false);
+                    MessageBox.error(`The appointment is already ${statuses}`);
+                    return
+                 }
+            //    Get the patient ID from the context
+               const appointmentId = context.getObject().appointmentId;
+               if (!appointmentId) {
+                   console.error("No patientId found in the binding context.");
+                   return;
+               }
+           
+
+                const status = "REJECTED";
                 fetch("http://localhost:4000/odata/updateAppointmentStatus",{
                     method: "POST",
                     headers: {
@@ -460,7 +515,6 @@ sap.ui.define([
                     MessageBox.error("Error declining appointment: " + error.message);
                 });
             }
-
             
     
               
