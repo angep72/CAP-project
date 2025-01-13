@@ -275,6 +275,7 @@
                                             <m:HBox>
                                                 <m:Button
                                                     icon="sap-icon://accept"
+                                                    press="onAccept"
                                                 />
                                                 <m:Button 
                                                 icon="sap-icon://decline"

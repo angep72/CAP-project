@@ -363,6 +363,7 @@ sap.ui.define([
                 
             },
             onDelete:function(){
+                
                 const productId = this._productIdToDelete
                 const order_date = this.byId("dateBooked").getValue();
                 const reason = this.byId("reason").getValue();
@@ -395,14 +396,44 @@ sap.ui.define([
                 });
 
             },
-            onDecline:function(){
+            onAccept:function(oEvent){
+               // Get the source of the event
+               const source = oEvent.getSource();
+               console.log("Event Source:", source);
+           
+               // Traverse up the parent hierarchy to find the element with the binding context
+               let context = null;
+               let currentElement = source;
+           
+               while (currentElement && !context) {
+                   context = currentElement.getBindingContext();
+                   currentElement = currentElement.getParent();
+               }
+           
+               if (!context) {
+                   console.error("No binding context found for the selected item.");
+                   return;
+               }
+           
+               // Get the patient ID from the context
+               const appointmentId = context.getObject().appointmentId;
+               if (!appointmentId) {
+                   console.error("No product ID found in the binding context.");
+                   return;
+               }
+           
+            //    console.log("Appointment ID: " + appointmentId);
+
+
+
                 const status = "ACCEPTED";
-                fetch("",{
+                fetch("http://localhost:4000/odata/updateAppointmentStatus",{
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({  // Convert the object to a JSON string
+                        appointmentId: appointmentId,
                         status: status
                     })
                 })
