@@ -235,7 +235,7 @@
                 <subSections>
                     <ObjectPageSubSection>
                         <blocks>
-                            <m:Table id="Orderssy">
+                            <m:Table id="Orderssy" items="{/Appointments}">
                                 <m:headerToolbar>
                                     <m:Toolbar>
                                         <m:Title text="Patients appointments" />
@@ -268,12 +268,9 @@
                                 <m:items>
                                     <m:ColumnListItem>
                                         <m:cells>
-                                            <m:Text text="{ID}" />
-                                            <m:Text text="{product_ID}" />
-                                            <m:Text text="{customer}" />
+                                            <m:Text text="{dateTime}" />
+                                            <m:Text text="{reason}" />
                                             <m:Text text="{status}" />
-                                            <m:Text text="{orderDate}" />
-                                            <m:Text text="{quantity}" />
                                             <m:HBox>
                                                 <m:Button
                                                     icon="sap-icon://edit"
