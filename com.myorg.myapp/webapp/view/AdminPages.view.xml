@@ -235,10 +235,15 @@
                 <subSections>
                     <ObjectPageSubSection>
                         <blocks>
-                            <m:Table id="Orderssy" items="{/Appointments}">
+                            <m:Table
+                                id="Orderssy"
+                                items="{/Appointments}"
+                            >
                                 <m:headerToolbar>
                                     <m:Toolbar>
-                                        <m:Title text="Patients appointments who Missed the doctors" />
+                                        <m:Title
+                                            text="Patients appointments who Missed the doctors"
+                                        />
                                         <m:ToolbarSpacer />
                                         <m:SearchField width="30%" />
                                         <m:Button
@@ -264,7 +269,9 @@
                                     <m:Column>
                                         <m:Text text="status" />
                                     </m:Column>
-                                    <m:Column><m:Text text="actions"></m:Text></m:Column>
+                                    <m:Column>
+                                        <m:Text text="actions" />
+                                    </m:Column>
                                 </m:columns>
                                 <m:items>
                                     <m:ColumnListItem>
@@ -274,12 +281,14 @@
                                             <m:Text text="{status}" />
                                             <m:HBox>
                                                 <m:Button
+                                                    id="enableButton"
                                                     icon="sap-icon://accept"
-                                                    press="onAccept"
+                                                    press=".onAccept"
                                                 />
-                                                <m:Button 
-                                                icon="sap-icon://decline"
-                                                press="onDecline"
+
+                                                <m:Button
+                                                    icon="sap-icon://decline"
+                                                    press="onDecline"
                                                 />
                                             </m:HBox>
                                         </m:cells>
@@ -319,11 +328,13 @@
                 displayFormat="yyyy-MM-dd"
                 change="validateReleaseDate"
             />
-            <m:Label text="Reason"/>
-            <m:Input id="reason"/>
-            
+            <m:Label text="Reason" />
+            <m:Input id="reason" />
 
-            <m:HBox class=" sapUiSmallMargin" justifyContent="SpaceBetween">
+            <m:HBox
+                class=" sapUiSmallMargin"
+                justifyContent="SpaceBetween"
+            >
                 <m:Button
                     text="Send Book"
                     press="onDelete"

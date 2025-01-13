@@ -397,8 +397,11 @@ sap.ui.define([
 
             },
             onAccept:function(oEvent){
+                
+          
                // Get the source of the event
                const source = oEvent.getSource();
+
                console.log("Event Source:", source);
            
                // Traverse up the parent hierarchy to find the element with the binding context
@@ -424,7 +427,9 @@ sap.ui.define([
            
             //    console.log("Appointment ID: " + appointmentId);
 
-
+                // const oButton = this.byId("accepting-appoint-button")
+                // oButton.setEnabled(false);
+                // console.log(oButton)
 
                 const status = "ACCEPTED";
                 fetch("http://localhost:4000/odata/updateAppointmentStatus",{
@@ -446,8 +451,10 @@ sap.ui.define([
                         });
                     }
                     MessageBox.success("Appointment declined!");
+                    source.setEnabled(false);
+
                     this.onCancelBooking();
-                    this.getView().getModel().refresh();
+                  this.getView().getModel().refresh();
                 })
                 .catch((error) => {
                     MessageBox.error("Error declining appointment: " + error.message);
