@@ -264,6 +264,7 @@
                                     <m:Column>
                                         <m:Text text="status" />
                                     </m:Column>
+                                    <m:Column><m:Text text="actions"></m:Text></m:Column>
                                 </m:columns>
                                 <m:items>
                                     <m:ColumnListItem>
@@ -273,7 +274,11 @@
                                             <m:Text text="{status}" />
                                             <m:HBox>
                                                 <m:Button
-                                                    icon="sap-icon://edit"
+                                                    icon="sap-icon://accept"
+                                                />
+                                                <m:Button 
+                                                icon="sap-icon://decline"
+                                                press="onDecline"
                                                 />
                                             </m:HBox>
                                         </m:cells>
