@@ -415,6 +415,13 @@ sap.ui.define([
                    console.error("No binding context found for the selected item.");
                    return;
                }
+               const statuses = context.getObject().status
+
+               if(statuses === "REJECTED"){
+                source.setEnabled(false);
+                MessageBox.error(`The appointment is already ${statuses}`);
+                return
+             }
            
                // Get the patient ID from the context
                const appointmentId = context.getObject().appointmentId;
