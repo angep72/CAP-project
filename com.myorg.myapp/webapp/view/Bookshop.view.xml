@@ -1,354 +1,89 @@
 <mvc:View
-    xmlns:table="sap.ui.table"
-    xmlns="sap.uxap"
-    xmlns:m="sap.m"
-    xmlns:F="sap.f"
-    xmlns:form="sap.ui.layout.form"
+    displayBlock="true"
+    xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
-    controllerName="com.myorg.myapp.controller.Main"
->
-    <ObjectPageLayout
-        id="ObjectPageLayout"
-        showTitleInHeaderContent="true"
-        alwaysShowContentHeader="false"
-        preserveHeaderStateOnScroll="false"
-        headerContentPinnable="true"
-        isChildPage="true"
-        upperCaseAnchorBar="false"
-    >
-        <headerTitle>
-            <ObjectPageDynamicHeaderTitle>
-                <expandedHeading>
-                    <m:FlexBox
-                        wrap="Wrap"
-                        fitContainer="true"
-                        alignItems="Center"
-                    >
-                        <m:Title
-                            text="Pauline"
-                            wrapping="true"
-                            class="sapUiTinyMarginEnd"
-                        />
-                    </m:FlexBox>
-                </expandedHeading>
+    xmlns:custom="com.myorg.myapp.control">
 
-                <snappedHeading>
-                    <m:FlexBox
-                        wrap="Wrap"
-                        fitContainer="true"
-                        alignItems="Center"
-                    >
-                        <m:FlexBox
-                            wrap="NoWrap"
-                            fitContainer="true"
-                            alignItems="Center"
-                            class="sapUiTinyMarginEnd"
-                        >
-                            <m:Title
-                                text="Ange Pauline"
-                                wrapping="true"
-                                class="sapUiTinyMarginEnd"
-                            />
-                        </m:FlexBox>
-                        <m:FlexBox
-                            wrap="NoWrap"
-                            fitContainer="true"
-                            alignItems="Center"
-                            class="sapUiTinyMarginEnd"
-                        >
-                            <m:ObjectMarker
-                                type="Favorite"
-                                class="sapUiTinyMarginEnd"
-                            />
-                            <m:ObjectMarker type="Flagged" />
-                            <m:Button
-                                icon="sap-icon://private"
-                                type="Transparent"
-                            />
-                            <m:Button
-                                icon="sap-icon://arrow-down"
-                                type="Transparent"
-                            />
-                        </m:FlexBox>
-                    </m:FlexBox>
-                </snappedHeading>
+    <custom:CustomPage
+        id="customPage"
+        title="{i18n>appTitle}"
+        logoSrc="netflix.png"
+        style="background-color: #f5f5f5;">
+        
+        <custom:navItems>
+            <Link text="Home" class="customPageNavText" press="onHomePress"/>
+            <Link text="About Us"  class="customPageNavText" press="onAboutPress"/>
+            <Link text="Contact" class="customPageNavText" press="onContactPress"/>
+        </custom:navItems>
 
-                <expandedContent>
-                    <m:Text text="Senior Developer" />
-                </expandedContent>
+        <custom:actions>
+            <Button icon="sap-icon://settings" press="onSettingsPress" />
+            <Button icon="sap-icon://log" press="onLogoutPress" />
+        </custom:actions>
 
-                <snappedContent>
-                    <m:Text text="Senior Developer" />
-                </snappedContent>
+        <custom:content>
+            <VBox class="sapUiLargeMargin">
+                <Text text="Welcome to my Custom Page" />
+                <custom:CustomButton  text="Submit"
 
-                <actions>
-                    <m:ToggleButton
-                        text="Edit"
-                        type="Emphasized"
-                        press="onEditToggleButtonPress"
-                    />
-                    <m:OverflowToolbarButton
-                        type="Transparent"
-                        icon="sap-icon://copy"
-                    />
-                    <m:OverflowToolbarButton
-                        type="Transparent"
-                        icon="sap-icon://delete"
-                    />
-                    <m:OverflowToolbarButton
-                        type="Transparent"
-                        icon="sap-icon://add"
-                    />
-                    <m:OverflowToolbarButton
-                        type="Transparent"
-                        icon="sap-icon://paste"
-                    />
-                </actions>
+    submitColor="red"
+    submissionStart=".onSubmissionStart"
+    submissionEnd=".onSubmissionEnd" customPress="onCustomButtonPress" class="mycustom"/>
+            </VBox>
+			<Table id="idProductsTable"
+				
+						sticky="HeaderToolbar,ColumnHeaders"
+						inset="false"
+						items="{products>/Products}"
+					   class="sapFDynamicPageAlignContent ProductsTable"
+					   width="auto" growing="true" growingScrollToLoad="true" growingThreshold="20" mode="MultiSelect"
+					   
+					   >
+					<headerToolbar>
+						<Toolbar>
+							<Title text="Products" level="H2"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+					<Column >
+					<Text text=""></Text>
+					</Column>
+						<Column>
+							<Text text="Product ID" />
+						</Column>
+						<Column>
+							<Text text="Name" />
+						</Column>
+						<Column>
+							<Text text="Supplier" />
+						</Column>
+						<Column>
+							<Text text="Category" />
+						</Column>
+						
+						<Column>
+							<Text text="Price" />
+						</Column>
+						
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation" press="onProductPress" class="columnList">
+						<cells>
+						<Image src="{products>productPicUrl}" width="6rem"/>
+						<Text text="{products>ProductId}" />
+						<VBox >
+						<ObjectIdentifier title="{products>name}"/>
+						<ObjectStatus text="{products>status}" state="{= ${products>status} === 'In Stock'?'Success':'Error'}"></ObjectStatus>
+						</VBox>
+                        <Text text="{products>supplierName}" />
+                        <Text text="{products>category}" />
+                        <Text text="$ {products>price}" />
+						
+						</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+        </custom:content>
+    </custom:CustomPage>
 
-                <navigationActions>
-                    <m:OverflowToolbarButton
-                        type="Transparent"
-                        icon="sap-icon://full-screen"
-                        tooltip="Enter Full Screen Mode"
-                    />
-                    <m:OverflowToolbarButton
-                        type="Transparent"
-                        icon="sap-icon://decline"
-                        tooltip="Close column"
-                    />
-                </navigationActions>
-            </ObjectPageDynamicHeaderTitle>
-        </headerTitle>
-        <headerContent>
-            <m:FlexBox
-                wrap="Wrap"
-                fitContainer="true"
-                alignContent="Stretch"
-            >
-                <m:Avatar
-                    displaySize="L"
-                    displayShape="Square"
-                    class="sapUiTinyMarginEnd"
-                />
-                <m:VBox
-                    justifyContent="Center"
-                    class="sapUiSmallMarginEnd"
-                >
-                    <m:Label text="Main Product" />
-                </m:VBox>
-                <m:VBox
-                    justifyContent="Center"
-                    class="sapUiSmallMarginEnd"
-                >
-                    <m:Label text="Sub Product" />
-                </m:VBox>
-                <m:VBox
-                    justifyContent="Center"
-                    class="sapUiSmallMarginEnd"
-                >
-                    <m:Label text="Price" />
-                </m:VBox>
-            </m:FlexBox>
-        </headerContent>
-        <sections>
-            <ObjectPageSection title="General Information">
-                <subSections>
-                    <ObjectPageSubSection>
-                        <blocks>
-                            <form:SimpleForm
-                                maxContainerCols="2"
-                                editable="false"
-                                layout="ResponsiveGridLayout"
-                                labelSpanL="12"
-                                labelSpanM="12"
-                                emptySpanL="0"
-                                emptySpanM="0"
-                                columnsL="1"
-                                columnsM="1"
-                            >
-                                <form:content>
-                                    <m:Table
-                                        id="idTables"
-                                        items="{/Products}"
-                                    >
-                                        <m:headerToolbar>
-                                            <m:Toolbar>
-                                                <m:Title text="Books" />
-                                                <m:ToolbarSpacer />
-                                                <m:SearchField width="30%" />
-                                                <m:Button
-                                                    text="sort"
-                                                    icon="sap-icon://sort"
-                                                />
-                                                <m:Button
-                                                    text="add new product"
-                                                    icon="sap-icon://add"
-                                                />
-                                            </m:Toolbar>
-                                        </m:headerToolbar>
-                                        <m:columns>
-                                            <m:Column>
-                                                <m:Text text="Product Name" />
-                                            </m:Column>
-                                            <m:Column>
-                                                <m:Text text="Description" />
-                                            </m:Column>
-                                            <m:Column>
-                                                <m:Text text="Stock" />
-                                            </m:Column>
-                                            <m:Column>
-                                                <m:Text text="Product ID" />
-                                            </m:Column>
-                                        </m:columns>
-                                        <m:items>
-                                            <m:ColumnListItem>
-                                                <m:cells>
-                                                    <m:Text text="{name}" />
-                                                    <m:Text
-                                                        text="{description}"
-                                                    />
-                                                    <m:Text text="{stock}" />
-                                                    <m:Text text="{ID}" />
-                                                </m:cells>
-                                            </m:ColumnListItem>
-                                        </m:items>
-                                    </m:Table>
-                                </form:content>
-                            </form:SimpleForm>
-                        </blocks>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
-            <ObjectPageSection title="Orders ">
-                <subSections>
-                    <ObjectPageSubSection>
-                        <blocks>
-                            <m:Table
-                                id="Orders"
-                                items="{/Orders}"
-                            >
-                                <m:headerToolbar>
-                                    <m:Toolbar>
-                                        <m:Title text="Orders" />
-                                        <m:ToolbarSpacer />
-                                        <m:SearchField width="30%" />
-                                        <m:Button
-                                            text="delete"
-                                            icon="sap-icon://delete"
-                                            press="onOpenDelete"
-                                        />
-
-                                        <m:Button
-                                            text="add new Order"
-                                            icon="sap-icon://shipping-status"
-                                            press="onOrderButton"
-                                        />
-                                    </m:Toolbar>
-                                </m:headerToolbar>
-                                <m:columns>
-                                <m:Column >
-                                <m:Text text="Order ID"/>
-                                </m:Column>
-                                    <m:Column>
-                                        <m:Text text="Product Ordered" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="Customer" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="Ordered date" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="status" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="quantity orderd" />
-                                    </m:Column>
-                                    <m:Column>
-                                        <m:Text text="action" />
-                                    </m:Column>
-                                </m:columns>
-                                <m:items>
-                                    <m:ColumnListItem>
-                                        <m:cells>
-                                            <m:Text text="{ID}" />
-                                            <m:Text text="{product_ID}" />
-                                            <m:Text text="{customer}" />
-                                            <m:Text text="{status}" />
-                                            <m:Text text="{orderDate}" />
-                                            <m:Text text="{quantity}" />
-                                            <m:HBox>
-                                                <m:Button
-                                                    icon="sap-icon://edit"
-                                                />
-                                            </m:HBox>
-                                        </m:cells>
-                                    </m:ColumnListItem>
-                                </m:items>
-                            </m:Table>
-                        </blocks>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
-        </sections>
-
-        <footer>
-            <m:OverflowToolbar>
-                <m:ToolbarSpacer />
-                <m:Button
-                    type="Accept"
-                    text="Save"
-                />
-                <m:Button
-                    type="Reject"
-                    text="Cancel"
-                />
-            </m:OverflowToolbar>
-        </footer>
-    </ObjectPageLayout>
-    <m:Dialog
-        id="Place-order"
-        title="Placing Order in my CAP"
-        class="sapUiContentPadding"
-    >
-        <m:VBox>
-            <m:Label text="Product ID" />
-            <m:Input id="new-product" />
-            <m:Label text="Quantity" />
-            <m:Input id="quantity" />
-            <m:Label text="Customer Id" />
-            <m:Input id="customer-id" />
-
-            <m:HBox>
-                <m:Button
-                    text="Submit Order"
-                    press="onSubmitOrder"
-                />
-                <m:Button
-                    text="cancel Order"
-                    press="onCancelOrder"
-                />
-            </m:HBox>
-        </m:VBox>
-    </m:Dialog>
-    <m:Dialog
-        id="DeletingOrder"
-        title="Deleting Order"
-        class="sapUiContentPadding"
-    >
-        <m:VBox>
-            <m:Label text="Enter the Order_Id you want to cancel" />
-            <m:Input id="order-product" />
-        </m:VBox>
-        <m:HBox>
-            <m:Button
-                text="Submit Order"
-                press="onSubmitOrdering"
-            />
-            <m:Button
-                text="cancel Order"
-                press="onCancelOrdering"
-            />
-        </m:HBox>
-    </m:Dialog>
 </mvc:View>

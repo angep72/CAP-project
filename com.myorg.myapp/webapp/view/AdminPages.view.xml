@@ -275,6 +275,8 @@
                                                 <m:Button
                                                     icon="sap-icon://decline"
                                                     press="onDecline"
+                                                    text="{= ${status} === 'ACCEPTED' ? 'false' : 'true' }"
+                                                    enabled="{= ${status} === 'ACCEPTED' ? '}"
                                                 />
                                             </m:HBox>
                                         </m:cells>
