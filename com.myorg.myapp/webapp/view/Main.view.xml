@@ -12,7 +12,6 @@
         <content>
             <Table
                 id="idTable"
-                items="{/Books}"
             >
                 <headerToolbar>
                     <Toolbar>

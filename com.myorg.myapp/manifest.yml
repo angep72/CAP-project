@@ -1,0 +1,10 @@
+applications:
+  - name: com.myorg.myapp
+    memory: 512M
+    buildpacks:
+      - https://github.com/cloudfoundry/staticfile-buildpack
+    path: ./dist  # Path to your built files
+    routes:
+      - route: sapUi5_Crud.cfapps.ap21.hana.ondemand.com  # Updated with a valid domain
+    env:
+      UI5_REPO: "https://github.com/angep72/CAP-project.git"

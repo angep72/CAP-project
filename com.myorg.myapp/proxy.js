@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 });
 
 const proxy = createProxyMiddleware({
-    target: "http://localhost:4004/odata/v4/patient-management/",
+    target: "http://localhost:4004/odata/v4/patient-management",
     changeOrigin: true,
     pathRewrite: {
         '^/odata': ''
