@@ -64,7 +64,12 @@
 			},
 			"Northwind": {
 				"dataSource": "MainService",
-				"preload": true
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"groupId":"$direct",
+					"sychronization":"None"
+				}
 			},
 			"": {
             "type": "sap.ui.model.odata.v4.ODataModel",
