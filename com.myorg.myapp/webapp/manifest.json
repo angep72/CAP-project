@@ -62,6 +62,10 @@
 					"bundleName": "workersWebsite.i18n.i18n"
 				}
 			},
+			"Northwind": {
+				"dataSource": "MainService",
+				"preload": true
+			},
 			"": {
             "type": "sap.ui.model.odata.v4.ODataModel",
             "uri": "http://localhost:4004/odata/v4/Books/"
