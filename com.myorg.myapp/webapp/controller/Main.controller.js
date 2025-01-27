@@ -10,7 +10,7 @@ sap.ui.define([
 		//This controller uses Odata version 4
         onInit: function () {
             const oModel = new ODataModel({
-                serviceUrl: "http://localhost:4000/odata/",
+                serviceUrl: "/odata/odata/v4/patient-management/",
                 synchronizationMode: "None"
             });
 
